@@ -11,7 +11,7 @@ public interface ProdottoDAO {
     Prodotto create(
             //Long id_prod,
             String nome_prod,
-            String sede_acquisto,
+            String marca,
             String descrizione,
             BigDecimal prezzo,
             int quantita_disponibile,

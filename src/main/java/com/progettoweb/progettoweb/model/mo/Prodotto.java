@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 public class Prodotto {
     private Long id_prod;
     private String nome_prod;
-    private String sede_acquisto;
+    private String marca;
     private String descrizione;
     private BigDecimal prezzo;
     private int quantita_disponibile;
@@ -27,8 +27,8 @@ public class Prodotto {
     public void setid_prod(Long id_prod){this.id_prod=id_prod;}
     public String getnome_prod() {return nome_prod;}
     public void setnome_prod(String nome_prod){this.nome_prod=nome_prod;}
-    public String getsede_acquisto() {return sede_acquisto;}
-    public void setsede_acquisto(String sede_acquisto){this.sede_acquisto=sede_acquisto;}
+    public String getMarca() {return marca;}
+    public void setMarca(String marca){this.marca=marca;}
     public String getdescrizione() {return descrizione;}
     public void setdescrizione(String descrizione){this.descrizione=descrizione;}
     public BigDecimal getprezzo() {return prezzo;}

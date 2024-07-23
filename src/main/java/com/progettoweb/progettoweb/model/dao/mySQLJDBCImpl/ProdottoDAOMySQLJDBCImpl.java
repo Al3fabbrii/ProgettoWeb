@@ -25,7 +25,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
     public Prodotto create(
             //Long id_prod
             String nome_prod,
-            String sede_acquisto,
+            String marca,
             String descrizione,
             BigDecimal prezzo,
             int quantita_disponibile,
@@ -37,7 +37,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
         PreparedStatement ps;
         Prodotto prod = new Prodotto();
         prod.setnome_prod(nome_prod);
-        prod.setsede_acquisto(sede_acquisto);
+        prod.setMarca(marca);
         prod.setdescrizione(descrizione);
         prod.setprezzo(prezzo);
         prod.setquantita_disponibile(quantita_disponibile);
@@ -52,7 +52,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
                     + " FROM prodotto "
                     + " WHERE "
                     + " Nome = ? AND"
-                    + " Sede_acquisto = ? AND"
+                    + " Marca = ? AND"
                     + " Descrizione = ? AND"
                     + " Prezzo = ? AND"
                     + " Quantità_disp = ? AND "
@@ -62,7 +62,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
             ps = conn.prepareStatement(sql);
             int i = 1;
             ps.setString(i++, prod.getnome_prod());
-            ps.setString(i++, prod.getsede_acquisto());
+            ps.setString(i++, prod.getMarca());
             ps.setString(i++, prod.getdescrizione());
             ps.setBigDecimal(i++, prod.getprezzo());
             ps.setInt(i++, prod.getquantita_disponibile());
@@ -103,7 +103,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
                 sql
                         = " INSERT INTO prodotto "
                         + "     (Nome,"
-                        + "     Sede_acquisto,"
+                        + "     Marca,"
                         + "     Descrizione,"
                         + "     Prezzo,"
                         + "     Quantità_disp,"
@@ -115,7 +115,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
                 ps = conn.prepareStatement(sql);
                 i = 1;
                 ps.setString(i++, prod.getnome_prod());
-                ps.setString(i++, prod.getsede_acquisto());
+                ps.setString(i++, prod.getMarca());
                 ps.setString(i++, prod.getdescrizione());
                 ps.setBigDecimal(i++, prod.getprezzo());
                 ps.setInt(i++, prod.getquantita_disponibile());
@@ -146,7 +146,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
                     + " WHERE "
 //                    + " deleted ='N' AND "
                     + " Nome = ? AND"
-                    + " Sede_acquisto = ? AND"
+                    + " Marca = ? AND"
                     + " Descrizione = ? AND"
                     + " Prezzo = ? AND"
                     + " Quantità_disp = ? AND "
@@ -157,7 +157,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
             ps = conn.prepareStatement(sql);
             int i = 1;
             ps.setString(i++, prodotto.getnome_prod());
-            ps.setString(i++, prodotto.getsede_acquisto());
+            ps.setString(i++, prodotto.getMarca());
             ps.setString(i++, prodotto.getdescrizione());
             ps.setBigDecimal(i++, prodotto.getprezzo());
             ps.setInt(i++, prodotto.getquantita_disponibile());
@@ -194,7 +194,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
                     = " UPDATE prodotto "
                     + " SET "
                     + " Nome = ?,"
-                    + " Sede_acquisto = ?,"
+                    + " Marca = ?,"
                     + " Descrizione = ? ,"
                     + " Prezzo = ? ,"
                     + " Quantità_disp = ? , "
@@ -207,7 +207,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
             ps = conn.prepareStatement(sql);
             i = 1;
             ps.setString(i++, prodotto.getnome_prod());
-            ps.setString(i++, prodotto.getsede_acquisto());
+            ps.setString(i++, prodotto.getMarca());
             ps.setString(i++, prodotto.getdescrizione());
             ps.setBigDecimal(i++, prodotto.getprezzo());
             ps.setInt(i++, prodotto.getquantita_disponibile());
@@ -402,7 +402,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
         } catch (SQLException sqle) {
         }
         try {
-            prod.setsede_acquisto(rs.getString("sede_acquisto"));
+            prod.setMarca(rs.getString("Marca"));
         } catch (SQLException sqle) {
         }
         try {
