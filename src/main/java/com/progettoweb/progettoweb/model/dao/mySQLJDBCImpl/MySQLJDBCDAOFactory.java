@@ -1,7 +1,7 @@
-package org.fruttaeverdura.fruttaeverdura.model.dao.mySQLJDBCImpl;
+package com.progettoweb.progettoweb.model.dao.mySQLJDBCImpl;
 
-import org.fruttaeverdura.fruttaeverdura.model.dao.*;
-import org.fruttaeverdura.fruttaeverdura.services.config.Configuration;
+import com.progettoweb.progettoweb.model.dao.*;
+import com.progettoweb.progettoweb.services.config.Configuration;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.SQLException;

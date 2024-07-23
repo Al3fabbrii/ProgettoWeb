@@ -1,10 +1,10 @@
-package org.fruttaeverdura.fruttaeverdura.model.dao;
+package com.progettoweb.progettoweb.model.dao;
 
 import java.math.BigDecimal;
 
-import org.fruttaeverdura.fruttaeverdura.model.dao.exception.DataTruncationException;
-import org.fruttaeverdura.fruttaeverdura.model.dao.exception.DuplicatedObjectException;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Prodotto;
+import com.progettoweb.progettoweb.model.dao.exception.DataTruncationException;
+import com.progettoweb.progettoweb.model.dao.exception.DuplicatedObjectException;
+import com.progettoweb.progettoweb.model.mo.Prodotto;
 import java.util.List;
 
 public interface ProdottoDAO {

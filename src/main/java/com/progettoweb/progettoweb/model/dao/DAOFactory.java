@@ -1,7 +1,7 @@
-package org.fruttaeverdura.fruttaeverdura.model.dao;
+package com.progettoweb.progettoweb.model.dao;
 
-import org.fruttaeverdura.fruttaeverdura.model.dao.mySQLJDBCImpl.MySQLJDBCDAOFactory;
-import org.fruttaeverdura.fruttaeverdura.model.dao.CookieImpl.CookieDAOFactory;
+import com.progettoweb.progettoweb.model.dao.mySQLJDBCImpl.MySQLJDBCDAOFactory;
+import com.progettoweb.progettoweb.model.dao.CookieImpl.CookieDAOFactory;
 
 import java.util.Map;
 

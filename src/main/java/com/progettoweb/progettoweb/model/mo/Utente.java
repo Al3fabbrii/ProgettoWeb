@@ -1,4 +1,4 @@
-package org.fruttaeverdura.fruttaeverdura.model.mo;
+package com.progettoweb.progettoweb.model.mo;
 
 public class Utente {
     private Long id_utente;

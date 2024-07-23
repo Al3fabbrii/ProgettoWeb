@@ -1,10 +1,10 @@
-package org.fruttaeverdura.fruttaeverdura.model.dao.mySQLJDBCImpl;
+package com.progettoweb.progettoweb.model.dao.mySQLJDBCImpl;
 
-import org.fruttaeverdura.fruttaeverdura.model.dao.CartDAO;
-import org.fruttaeverdura.fruttaeverdura.model.dao.exception.DuplicatedObjectException;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Cart;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Utente;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Prodotto;
+import com.progettoweb.progettoweb.model.dao.CartDAO;
+import com.progettoweb.progettoweb.model.dao.exception.DuplicatedObjectException;
+import com.progettoweb.progettoweb.model.mo.Cart;
+import com.progettoweb.progettoweb.model.mo.Utente;
+import com.progettoweb.progettoweb.model.mo.Prodotto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

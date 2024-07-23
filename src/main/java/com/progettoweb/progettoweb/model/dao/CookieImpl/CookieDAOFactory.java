@@ -1,6 +1,6 @@
-package org.fruttaeverdura.fruttaeverdura.model.dao.CookieImpl;
+package com.progettoweb.progettoweb.model.dao.CookieImpl;
 
-import org.fruttaeverdura.fruttaeverdura.model.dao.*;
+import com.progettoweb.progettoweb.model.dao.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.Map;

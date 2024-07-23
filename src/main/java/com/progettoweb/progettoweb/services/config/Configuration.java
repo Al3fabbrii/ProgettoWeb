@@ -1,16 +1,16 @@
-package org.fruttaeverdura.fruttaeverdura.services.config;
+package com.progettoweb.progettoweb.services.config;
 
 import java.util.Calendar;
 import java.util.logging.Level;
 
-import org.fruttaeverdura.fruttaeverdura.model.dao.DAOFactory;
+import com.progettoweb.progettoweb.model.dao.DAOFactory;
 public class Configuration {
     /* Database Configuration */
     public static final String DAO_IMPL=DAOFactory.MYSQLJDBCIMPL;
     public static final String DATABASE_DRIVER="com.mysql.cj.jdbc.Driver";
     public static final String SERVER_TIMEZONE=Calendar.getInstance().getTimeZone().getID();
     public static final String
-            DATABASE_URL="jdbc:mysql://localhost/ecommerce?user=root&password=password&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone="+SERVER_TIMEZONE;
+            DATABASE_URL="jdbc:mysql://localhost/ecommerce?user=root&password=Gastarbeiter23&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone="+SERVER_TIMEZONE;
 
     /* Session Configuration */
     public static final String COOKIE_IMPL=DAOFactory.COOKIEIMPL;

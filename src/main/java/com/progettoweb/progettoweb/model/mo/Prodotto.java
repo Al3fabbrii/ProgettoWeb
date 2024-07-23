@@ -1,5 +1,4 @@
-package org.fruttaeverdura.fruttaeverdura.model.mo;
-
+package com.progettoweb.progettoweb.model.mo;
 import java.math.BigDecimal;
 
 public class Prodotto {

@@ -1,4 +1,4 @@
-package org.fruttaeverdura.fruttaeverdura.model.dao.mySQLJDBCImpl;
+package com.progettoweb.progettoweb.model.dao.mySQLJDBCImpl;
 
 import java.math.BigDecimal;
 import java.security.Permission;
@@ -9,10 +9,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.fruttaeverdura.fruttaeverdura.model.dao.ProdottoDAO;
-import org.fruttaeverdura.fruttaeverdura.model.dao.exception.DataTruncationException;
-import org.fruttaeverdura.fruttaeverdura.model.dao.exception.DuplicatedObjectException;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Prodotto;
+import com.progettoweb.progettoweb.model.dao.ProdottoDAO;
+import com.progettoweb.progettoweb.model.dao.exception.DataTruncationException;
+import com.progettoweb.progettoweb.model.dao.exception.DuplicatedObjectException;
+import com.progettoweb.progettoweb.model.mo.Prodotto;
 
 public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
     Connection conn;

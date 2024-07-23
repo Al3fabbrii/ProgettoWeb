@@ -1,4 +1,4 @@
-package org.fruttaeverdura.fruttaeverdura.model.dao.mySQLJDBCImpl;
+package com.progettoweb.progettoweb.model.dao.mySQLJDBCImpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,12 +8,12 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
 
-import org.fruttaeverdura.fruttaeverdura.model.mo.Showcase;
-import org.fruttaeverdura.fruttaeverdura.model.dao.ProdottoDAO;
-import org.fruttaeverdura.fruttaeverdura.model.dao.exception.DataTruncationException;
-import org.fruttaeverdura.fruttaeverdura.model.dao.exception.DuplicatedObjectException;
-import org.fruttaeverdura.fruttaeverdura.model.dao.ShowcaseDAO;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Prodotto;
+import com.progettoweb.progettoweb.model.mo.Showcase;
+import com.progettoweb.progettoweb.model.dao.ProdottoDAO;
+import com.progettoweb.progettoweb.model.dao.exception.DataTruncationException;
+import com.progettoweb.progettoweb.model.dao.exception.DuplicatedObjectException;
+import com.progettoweb.progettoweb.model.dao.ShowcaseDAO;
+import com.progettoweb.progettoweb.model.mo.Prodotto;
 
 public class ShowcaseDAOMySQLJDBCImpl implements ShowcaseDAO {
     Connection conn;

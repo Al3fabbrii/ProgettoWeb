@@ -1,10 +1,10 @@
-package org.fruttaeverdura.fruttaeverdura.model.dao.mySQLJDBCImpl;
+package com.progettoweb.progettoweb.model.dao.mySQLJDBCImpl;
 
-import org.fruttaeverdura.fruttaeverdura.model.dao.OrderDAO;
-import org.fruttaeverdura.fruttaeverdura.model.dao.exception.DuplicatedObjectException;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Utente;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Prodotto;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Order;
+import com.progettoweb.progettoweb.model.dao.OrderDAO;
+import com.progettoweb.progettoweb.model.dao.exception.DuplicatedObjectException;
+import com.progettoweb.progettoweb.model.mo.Utente;
+import com.progettoweb.progettoweb.model.mo.Prodotto;
+import com.progettoweb.progettoweb.model.mo.Order;
 
 import java.sql.*;
 import java.util.ArrayList;

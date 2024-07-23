@@ -1,9 +1,9 @@
-package org.fruttaeverdura.fruttaeverdura.model.dao;
+package com.progettoweb.progettoweb.model.dao;
 
-import org.fruttaeverdura.fruttaeverdura.model.dao.exception.DuplicatedObjectException;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Cart;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Utente;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Prodotto;
+import com.progettoweb.progettoweb.model.dao.exception.DuplicatedObjectException;
+import com.progettoweb.progettoweb.model.mo.Cart;
+import com.progettoweb.progettoweb.model.mo.Utente;
+import com.progettoweb.progettoweb.model.mo.Prodotto;
 
 import java.util.List;
 

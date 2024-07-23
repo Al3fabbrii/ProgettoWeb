@@ -1,4 +1,4 @@
-package org.fruttaeverdura.fruttaeverdura.model.dao.exception;
+package com.progettoweb.progettoweb.model.dao.exception;
 
 public class DataTruncationException extends Exception{
     /**

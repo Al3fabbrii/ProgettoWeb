@@ -1,6 +1,6 @@
-package org.fruttaeverdura.fruttaeverdura.services.logservice;
+package com.progettoweb.progettoweb.services.logservice;
 
-import org.fruttaeverdura.fruttaeverdura.services.config.Configuration;
+import com.progettoweb.progettoweb.services.config.Configuration;
 
 import java.io.IOException;
 import java.util.logging.*;

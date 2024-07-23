@@ -1,13 +1,13 @@
-package org.fruttaeverdura.fruttaeverdura.model.dao;
+package com.progettoweb.progettoweb.model.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import org.fruttaeverdura.fruttaeverdura.model.dao.exception.DataTruncationException;
-import org.fruttaeverdura.fruttaeverdura.model.dao.exception.DuplicatedObjectException;
+import com.progettoweb.progettoweb.model.dao.exception.DataTruncationException;
+import com.progettoweb.progettoweb.model.dao.exception.DuplicatedObjectException;
 
-import org.fruttaeverdura.fruttaeverdura.model.mo.Utente;
+import com.progettoweb.progettoweb.model.mo.Utente;
 public interface UtenteDAO {
 
     public Utente create(
