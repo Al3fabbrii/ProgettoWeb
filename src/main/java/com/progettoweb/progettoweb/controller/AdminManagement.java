@@ -1,12 +1,12 @@
-package org.fruttaeverdura.fruttaeverdura.controller;
+package com.progettoweb.progettoweb.controller;
 
-import org.fruttaeverdura.fruttaeverdura.model.dao.DAOFactory;
-import org.fruttaeverdura.fruttaeverdura.model.dao.UtenteDAO;
-import org.fruttaeverdura.fruttaeverdura.model.dao.ProdottoDAO;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Utente;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Prodotto;
-import org.fruttaeverdura.fruttaeverdura.services.logservice.LogService;
-import org.fruttaeverdura.fruttaeverdura.services.config.Configuration;
+import com.progettoweb.progettoweb.model.dao.DAOFactory;
+import com.progettoweb.progettoweb.model.dao.UtenteDAO;
+import com.progettoweb.progettoweb.model.dao.ProdottoDAO;
+import com.progettoweb.progettoweb.model.mo.Utente;
+import com.progettoweb.progettoweb.model.mo.Prodotto;
+import com.progettoweb.progettoweb.services.logservice.LogService;
+import com.progettoweb.progettoweb.services.config.Configuration;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

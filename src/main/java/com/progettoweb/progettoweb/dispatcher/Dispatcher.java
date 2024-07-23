@@ -1,4 +1,4 @@
-package org.fruttaeverdura.fruttaeverdura.dispatcher;
+package com.progettoweb.progettoweb.dispatcher;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,7 +11,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.fruttaeverdura.fruttaeverdura.services.logservice.LogService;
+import com.progettoweb.progettoweb.services.logservice.LogService;
 
 @WebServlet(name = "Dispatcher", urlPatterns = {"/Dispatcher"})
 public class Dispatcher extends HttpServlet {

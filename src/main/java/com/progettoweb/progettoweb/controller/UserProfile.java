@@ -1,4 +1,4 @@
-package org.fruttaeverdura.fruttaeverdura.controller;
+package com.progettoweb.progettoweb.controller;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -6,14 +6,14 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.fruttaeverdura.fruttaeverdura.model.dao.exception.DuplicatedObjectException;
-import org.fruttaeverdura.fruttaeverdura.model.mo.*;
+import com.progettoweb.progettoweb.model.dao.exception.DuplicatedObjectException;
+import com.progettoweb.progettoweb.model.mo.*;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 
-import org.fruttaeverdura.fruttaeverdura.model.dao.*;
-import org.fruttaeverdura.fruttaeverdura.services.config.Configuration;
-import org.fruttaeverdura.fruttaeverdura.services.logservice.LogService;
+import com.progettoweb.progettoweb.model.dao.*;
+import com.progettoweb.progettoweb.services.config.Configuration;
+import com.progettoweb.progettoweb.services.logservice.LogService;
 
 public class UserProfile {
 

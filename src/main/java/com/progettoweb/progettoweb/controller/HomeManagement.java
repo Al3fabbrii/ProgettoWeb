@@ -1,4 +1,4 @@
-package org.fruttaeverdura.fruttaeverdura.controller;
+package com.progettoweb.progettoweb.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,16 +9,16 @@ import java.util.logging.Logger;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 
-import org.fruttaeverdura.fruttaeverdura.model.dao.*;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Prodotto;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Showcase;
-import org.fruttaeverdura.fruttaeverdura.services.config.Configuration;
-import org.fruttaeverdura.fruttaeverdura.services.logservice.LogService;
-import org.fruttaeverdura.fruttaeverdura.model.dao.exception.DuplicatedObjectException;
+import com.progettoweb.progettoweb.model.dao.*;
+import com.progettoweb.progettoweb.model.mo.Prodotto;
+import com.progettoweb.progettoweb.model.mo.Showcase;
+import com.progettoweb.progettoweb.services.config.Configuration;
+import com.progettoweb.progettoweb.services.logservice.LogService;
+import com.progettoweb.progettoweb.model.dao.exception.DuplicatedObjectException;
 
-import org.fruttaeverdura.fruttaeverdura.model.mo.Utente;
+import com.progettoweb.progettoweb.model.mo.Utente;
 
-import static org.fruttaeverdura.fruttaeverdura.controller.ProductManagement.productRetrieve;
+import static com.progettoweb.progettoweb.controller.ProductManagement.productRetrieve;
 
 public class HomeManagement {
     private HomeManagement() {

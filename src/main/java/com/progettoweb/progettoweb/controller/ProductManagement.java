@@ -1,4 +1,4 @@
-package org.fruttaeverdura.fruttaeverdura.controller;
+package com.progettoweb.progettoweb.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,17 +10,17 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import org.fruttaeverdura.fruttaeverdura.model.dao.mySQLJDBCImpl.ProdottoDAOMySQLJDBCImpl;
-import org.fruttaeverdura.fruttaeverdura.services.config.Configuration;
-import org.fruttaeverdura.fruttaeverdura.services.logservice.LogService;
+import com.progettoweb.progettoweb.model.dao.mySQLJDBCImpl.ProdottoDAOMySQLJDBCImpl;
+import com.progettoweb.progettoweb.services.config.Configuration;
+import com.progettoweb.progettoweb.services.logservice.LogService;
 
-import org.fruttaeverdura.fruttaeverdura.model.mo.Utente;
-import org.fruttaeverdura.fruttaeverdura.model.mo.Prodotto;
-import org.fruttaeverdura.fruttaeverdura.model.dao.DAOFactory;
-import org.fruttaeverdura.fruttaeverdura.model.dao.UtenteDAO;
-import org.fruttaeverdura.fruttaeverdura.model.dao.ProdottoDAO;
-import org.fruttaeverdura.fruttaeverdura.model.dao.exception.DataTruncationException;
-import org.fruttaeverdura.fruttaeverdura.model.dao.exception.DuplicatedObjectException;
+import com.progettoweb.progettoweb.model.mo.Utente;
+import com.progettoweb.progettoweb.model.mo.Prodotto;
+import com.progettoweb.progettoweb.model.dao.DAOFactory;
+import com.progettoweb.progettoweb.model.dao.UtenteDAO;
+import com.progettoweb.progettoweb.model.dao.ProdottoDAO;
+import com.progettoweb.progettoweb.model.dao.exception.DataTruncationException;
+import com.progettoweb.progettoweb.model.dao.exception.DuplicatedObjectException;
 import java.math.BigDecimal;
 public class ProductManagement extends HttpServlet {
     private ProdottoDAO prodottoDAO;

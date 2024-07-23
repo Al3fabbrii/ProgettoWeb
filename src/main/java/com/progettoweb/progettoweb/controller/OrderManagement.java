@@ -1,11 +1,11 @@
-package org.fruttaeverdura.fruttaeverdura.controller;
+package com.progettoweb.progettoweb.controller;
 
-import org.fruttaeverdura.fruttaeverdura.model.dao.*;
+import com.progettoweb.progettoweb.model.dao.*;
 
-import org.fruttaeverdura.fruttaeverdura.model.dao.exception.DuplicatedObjectException;
-import org.fruttaeverdura.fruttaeverdura.model.mo.*;
-import org.fruttaeverdura.fruttaeverdura.services.config.Configuration;
-import org.fruttaeverdura.fruttaeverdura.services.logservice.LogService;
+import com.progettoweb.progettoweb.model.dao.exception.DuplicatedObjectException;
+import com.progettoweb.progettoweb.model.mo.*;
+import com.progettoweb.progettoweb.services.config.Configuration;
+import com.progettoweb.progettoweb.services.logservice.LogService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
