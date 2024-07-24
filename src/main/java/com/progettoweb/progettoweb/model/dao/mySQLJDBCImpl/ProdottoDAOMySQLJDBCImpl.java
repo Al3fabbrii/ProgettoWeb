@@ -36,14 +36,14 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
 
         PreparedStatement ps;
         Prodotto prod = new Prodotto();
-        prod.setnome_prod(nome_prod);
+        prod.setNome_prod(nome_prod);
         prod.setMarca(marca);
-        prod.setdescrizione(descrizione);
-        prod.setprezzo(prezzo);
-        prod.setquantita_disponibile(quantita_disponibile);
-        prod.setcategoria(categoria);
+        prod.setDescrizione(descrizione);
+        prod.setPrezzo(prezzo);
+        prod.setQuantita_disponibile(quantita_disponibile);
+        prod.setCategoria(categoria);
         //prod.setblocked_prod(blocked);
-        prod.setimg_path(img_path);
+        prod.setImg_path(img_path);
 
         try {
 
@@ -61,14 +61,14 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
 
             ps = conn.prepareStatement(sql);
             int i = 1;
-            ps.setString(i++, prod.getnome_prod());
+            ps.setString(i++, prod.getNome_prod());
             ps.setString(i++, prod.getMarca());
-            ps.setString(i++, prod.getdescrizione());
-            ps.setBigDecimal(i++, prod.getprezzo());
-            ps.setInt(i++, prod.getquantita_disponibile());
-            ps.setString(i++, prod.getcategoria());
+            ps.setString(i++, prod.getDescrizione());
+            ps.setBigDecimal(i++, prod.getPrezzo());
+            ps.setInt(i++, prod.getQuantita_disponibile());
+            ps.setString(i++, prod.getCategoria());
             //ps.setBoolean(i++, prod.isblocked_prod());
-            ps.setString(i++, prod.getimg_path());
+            ps.setString(i++, prod.getImg_path());
 
             ResultSet resultSet = ps.executeQuery();
 
@@ -114,13 +114,13 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
 
                 ps = conn.prepareStatement(sql);
                 i = 1;
-                ps.setString(i++, prod.getnome_prod());
+                ps.setString(i++, prod.getNome_prod());
                 ps.setString(i++, prod.getMarca());
-                ps.setString(i++, prod.getdescrizione());
-                ps.setBigDecimal(i++, prod.getprezzo());
-                ps.setInt(i++, prod.getquantita_disponibile());
-                ps.setString(i++, prod.getcategoria());
-                ps.setString(i++, prod.getimg_path());
+                ps.setString(i++, prod.getDescrizione());
+                ps.setBigDecimal(i++, prod.getPrezzo());
+            ps.setInt(i++, prod.getQuantita_disponibile());
+                ps.setString(i++, prod.getCategoria());
+                ps.setString(i++, prod.getImg_path());
 
                 try {
                     ps.executeUpdate();
@@ -156,14 +156,14 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
 
             ps = conn.prepareStatement(sql);
             int i = 1;
-            ps.setString(i++, prodotto.getnome_prod());
+            ps.setString(i++, prodotto.getNome_prod());
             ps.setString(i++, prodotto.getMarca());
-            ps.setString(i++, prodotto.getdescrizione());
-            ps.setBigDecimal(i++, prodotto.getprezzo());
-            ps.setInt(i++, prodotto.getquantita_disponibile());
-            ps.setString(i++, prodotto.getcategoria());
-            ps.setString(i++, prodotto.getimg_path());
-            ps.setLong(i++, prodotto.getid_prod());
+            ps.setString(i++, prodotto.getDescrizione());
+            ps.setBigDecimal(i++, prodotto.getPrezzo());
+            ps.setInt(i++, prodotto.getQuantita_disponibile());
+            ps.setString(i++, prodotto.getCategoria());
+            ps.setString(i++, prodotto.getImg_path());
+            ps.setLong(i++, prodotto.getId_prod());
 
             ResultSet resultSet = ps.executeQuery();
 
@@ -206,14 +206,14 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
 
             ps = conn.prepareStatement(sql);
             i = 1;
-            ps.setString(i++, prodotto.getnome_prod());
+            ps.setString(i++, prodotto.getNome_prod());
             ps.setString(i++, prodotto.getMarca());
-            ps.setString(i++, prodotto.getdescrizione());
-            ps.setBigDecimal(i++, prodotto.getprezzo());
-            ps.setInt(i++, prodotto.getquantita_disponibile());
-            ps.setString(i++, prodotto.getcategoria());
-            ps.setString(i++, prodotto.getimg_path());
-            ps.setLong(i++, prodotto.getid_prod());
+            ps.setString(i++, prodotto.getDescrizione());
+            ps.setBigDecimal(i++, prodotto.getPrezzo());
+            ps.setInt(i++, prodotto.getQuantita_disponibile());
+            ps.setString(i++, prodotto.getCategoria());
+            ps.setString(i++, prodotto.getImg_path());
+            ps.setLong(i++, prodotto.getId_prod());
 
             try {
                 ps.executeUpdate();
@@ -258,7 +258,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
 
             int i = 1;
             ps = conn.prepareStatement(sql);
-            ps.setInt(i++, prod.getquantita_disponibile() - quantita_disponibile);
+            ps.setInt(i++, prod.getQuantita_disponibile() - quantita_disponibile);
             ps.setLong(i++, id_prod);
 
             ps.executeUpdate();
@@ -282,7 +282,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
                     + " Id_prod=?";
 
             ps = conn.prepareStatement(sql);
-            ps.setLong(1, prod.getid_prod());
+            ps.setLong(1, prod.getId_prod());
             ps.executeUpdate();
             ps.close();
 
@@ -394,11 +394,11 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
     Prodotto read(ResultSet rs) {
         Prodotto prod = new Prodotto();
         try {
-            prod.setid_prod(rs.getLong("Id_prod"));
+            prod.setId_prod(rs.getLong("Id_prod"));
         } catch (SQLException sqle) {
         }
         try {
-            prod.setnome_prod(rs.getString("Nome"));
+            prod.setNome_prod(rs.getString("Nome"));
         } catch (SQLException sqle) {
         }
         try {
@@ -406,31 +406,31 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
         } catch (SQLException sqle) {
         }
         try {
-            prod.setdescrizione(rs.getString("descrizione"));
+            prod.setDescrizione(rs.getString("descrizione"));
         } catch (SQLException sqle) {
         }
         try {
-            prod.setprezzo(rs.getBigDecimal("prezzo"));
+            prod.setPrezzo(rs.getBigDecimal("prezzo"));
         } catch (SQLException sqle) {
         }
         try {
-            prod.setquantita_disponibile(rs.getInt("quantità_disp"));
+            prod.setQuantita_disponibile(rs.getInt("quantità_disp"));
         } catch (SQLException sqle) {
         }
         try {
-            prod.setcategoria(rs.getString("categoria"));
+            prod.setCategoria(rs.getString("categoria"));
         } catch (SQLException sqle) {
         }
         try {
-            prod.setdeleted_prod(rs.getString("deleted").equals("Y"));
+            prod.setDeleted_prod(rs.getString("deleted").equals("Y"));
         } catch (SQLException sqle) {
         }
         try {
-            prod.setblocked_prod(rs.getBoolean("blocked"));
+            prod.setBlocked_prod(rs.getBoolean("blocked"));
         } catch (SQLException sqle) {
         }
         try {
-            prod.setimg_path(rs.getString("img_path"));
+            prod.setImg_path(rs.getString("img_path"));
         } catch (SQLException sqle) {
         }
         return prod;

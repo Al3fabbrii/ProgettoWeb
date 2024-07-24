@@ -30,24 +30,24 @@ public class Utente {
     public Cart getCarts(int index) { return this.carts[index]; }
 
     public void setCarts(int index, Cart carts) {this.carts[index] = carts; }
-    public Long getid_utente() {return id_utente;}
-    public void setid_utente(Long id_utente){this.id_utente=id_utente;}
-    public String getemail() {return email;}
-    public void setemail(String email){this.email=email;}
+    public Long getId_utente() {return id_utente;}
+    public void setId_utente(Long id_utente){this.id_utente=id_utente;}
+    public String getEmail() {return email;}
+    public void setEmail(String email){this.email=email;}
     public String getPassword() {return password;}
     public void setPassword(String password){this.password=password;}
     public String getNome() {return nome;}
     public void setNome(String nome){this.nome=nome;}
     public String getCognome() {return cognome;}
     public void setCognome(String cognome){this.cognome=cognome;}
-    public String getindirizzo() {return indirizzo;}
-    public void setindirizzo(String indirizzo){this.indirizzo=indirizzo;}
-    public String getstato() {return stato;}
-    public void setstato(String stato){this.stato=stato;}
-    public String getcitta() {return citta;}
-    public void setcitta(String citta){this.citta=citta;}
-    public Long getcap() {return cap;}
-    public void setcap(Long cap){this.cap=cap;}
+    public String getIndirizzo() {return indirizzo;}
+    public void setIndirizzo(String indirizzo){this.indirizzo=indirizzo;}
+    public String getStato() {return stato;}
+    public void setStato(String stato){this.stato=stato;}
+    public String getCitta() {return citta;}
+    public void setCitta(String citta){this.citta=citta;}
+    public Long getCap() {return cap;}
+    public void setCap(Long cap){this.cap=cap;}
 
     public String getAdmin() {
         return admin;

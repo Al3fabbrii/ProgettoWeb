@@ -23,24 +23,24 @@ public class Prodotto {
     public Cart getCarts(int index) { return this.carts[index]; }
 
     public void setCarts(int index, Cart carts) {this.carts[index] = carts; }
-    public Long getid_prod() {return id_prod;}
-    public void setid_prod(Long id_prod){this.id_prod=id_prod;}
-    public String getnome_prod() {return nome_prod;}
-    public void setnome_prod(String nome_prod){this.nome_prod=nome_prod;}
+    public Long getId_prod() {return id_prod;}
+    public void setId_prod(Long id_prod){this.id_prod=id_prod;}
+    public String getNome_prod() {return nome_prod;}
+    public void setNome_prod(String nome_prod){this.nome_prod=nome_prod;}
     public String getMarca() {return marca;}
     public void setMarca(String marca){this.marca=marca;}
-    public String getdescrizione() {return descrizione;}
-    public void setdescrizione(String descrizione){this.descrizione=descrizione;}
-    public BigDecimal getprezzo() {return prezzo;}
-    public void setprezzo(BigDecimal prezzo){this.prezzo=prezzo;}
-    public int getquantita_disponibile() {return quantita_disponibile;}
-    public void setquantita_disponibile(int quantita_disponibile){this.quantita_disponibile = quantita_disponibile;}
-    public String getcategoria() {return categoria;}
-    public void setcategoria(String categoria){this.categoria=categoria;}
-    public boolean isdeleted_prod() {return deleted_prod;}
-    public void setdeleted_prod(boolean deleted_prod){this.deleted_prod=deleted_prod;}
-    public boolean isblocked_prod() {return blocked_prod;}
-    public void setblocked_prod(boolean blocked_prod){this.blocked_prod=blocked_prod;}
-    public String getimg_path() {return img_path;}
-    public void setimg_path(String img_path){this.img_path=img_path;}
+    public String getDescrizione() {return descrizione;}
+    public void setDescrizione(String descrizione){this.descrizione=descrizione;}
+    public BigDecimal getPrezzo() {return prezzo;}
+    public void setPrezzo(BigDecimal prezzo){this.prezzo=prezzo;}
+    public int getQuantita_disponibile() {return quantita_disponibile;}
+    public void setQuantita_disponibile(int quantita_disponibile){this.quantita_disponibile = quantita_disponibile;}
+    public String getCategoria() {return categoria;}
+    public void setCategoria(String categoria){this.categoria=categoria;}
+    public boolean isDeleted_prod() {return deleted_prod;}
+    public void setDeleted_prod(boolean deleted_prod){this.deleted_prod=deleted_prod;}
+    public boolean isBlocked_prod() {return blocked_prod;}
+    public void setBlocked_prod(boolean blocked_prod){this.blocked_prod=blocked_prod;}
+    public String getImg_path() {return img_path;}
+    public void setImg_path(String img_path){this.img_path=img_path;}
 }

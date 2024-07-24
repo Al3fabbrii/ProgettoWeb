@@ -19,31 +19,22 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
     }
 
     @Override
-    public Utente create(
-            Long id_utente,
-            String username,
-            String email,
-            String password,
-            String nome,
-            String cognome,
-            String indirizzo,
-            String stato,
-            String citta,
-            Long cap,
-            String admin,
-            String blocked,
-            String card_n,
-            Long cvc,
-            String exp_date
-            /*boolean deleted*/) throws DuplicatedObjectException/*MysqlDataTruncation*/{
+    public Utente create(Long id_utente,String username,String email,String password,String nome,String cognome,String indirizzo,String stato,String citta,Long cap,String admin,String blocked,String card_n,Long cvc,String exp_date/*boolean deleted*/) throws DuplicatedObjectException/*MysqlDataTruncation*/{
 
         PreparedStatement ps;
         Utente user = new Utente();
         user.setUsername(username);
         user.setPassword(password);
-        user.setemail(email);
+        user.setEmail(email);
         user.setNome(nome);
         user.setCognome(cognome);
+        user.setIndirizzo(indirizzo);
+        user.setStato(stato);
+        user.setCitta(citta);
+        user.setCap(cap);
+
+
+
 
 
         try {
@@ -71,7 +62,7 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
 
             resultSet.close();
             if(exist && deleted) {
-                throw new DuplicatedObjectException("UserDAOJDBCImpl.create: Tentativo di inserimento di un username già esistente.");
+                throw new DuplicatedObjectException("UserDAOJDBCImpl.create: L'utente che si sta inserendo esiste già.");
             }
             else {
                 sql
@@ -92,14 +83,18 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
                         + "     cvc,"
                         + "     exp_date "
                         + "   ) "
-                        + " VALUES (?,?,?,?,'N','N','/','/','/','N',0,?,'mancante',0,'mancante')";
+                        + " VALUES (?,?,?,?,'N','N',?,?,?,'N',?,?,'mancante',0,'mancante')";
 
                 ps = conn.prepareStatement(sql);
                 i = 1;
                 ps.setString(i++, user.getNome());
                 ps.setString(i++, user.getCognome());
-                ps.setString(i++, user.getemail());
+                ps.setString(i++, user.getEmail());
                 ps.setString(i++, user.getPassword());
+                ps.setString(i++,user.getIndirizzo());
+                ps.setString(i++, user.getStato());
+                ps.setString(i++, user.getCitta());
+                ps.setLong(i++, user.getCap());
                 ps.setString(i++, user.getUsername());
 
                 ps.executeUpdate();
@@ -129,7 +124,7 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
 
             ps = conn.prepareStatement(sql);
             int i = 1;
-            ps.setLong(i++, user.getid_utente());
+            ps.setLong(i++, user.getId_utente());
             ps.setString(i++, user.getUsername());
 
             ResultSet resultSet = ps.executeQuery();
@@ -166,16 +161,16 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
                 i = 1;
                 ps.setString(i++, user.getNome());
                 ps.setString(i++, user.getCognome());
-                ps.setString(i++, user.getemail());
+                ps.setString(i++, user.getEmail());
                 ps.setString(i++, user.getPassword());
-                ps.setString(i++, user.getindirizzo());
-                ps.setString(i++, user.getcitta());
-                ps.setLong(i++, user.getcap());
+                ps.setString(i++, user.getIndirizzo());
+                ps.setString(i++, user.getCitta());
+                ps.setLong(i++, user.getCap());
                 ps.setString(i++, user.getUsername());
                 ps.setString(i++, user.getCard_n());
                 ps.setLong(i++, user.getCvc());
                 ps.setString(i++, user.getExp_date());
-                ps.setLong(i++, user.getid_utente());
+                ps.setLong(i++, user.getId_utente());
 
                 ps.executeUpdate();
 
@@ -198,7 +193,7 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
                     + " Id_utente=?";
 
             ps = conn.prepareStatement(sql);
-            ps.setLong(1, user.getid_utente());
+            ps.setLong(1, user.getId_utente());
             ps.executeUpdate();
             ps.close();
 
@@ -354,7 +349,7 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
                     + " Id_utente=?";
 
             ps = conn.prepareStatement(sql);
-            ps.setLong(1, user.getid_utente());
+            ps.setLong(1, user.getId_utente());
             ps.executeUpdate();
             ps.close();
 
@@ -376,7 +371,7 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
                     + " Id_utente=?";
 
             ps = conn.prepareStatement(sql);
-            ps.setLong(1, user.getid_utente());
+            ps.setLong(1, user.getId_utente());
             ps.executeUpdate();
             ps.close();
 
@@ -399,7 +394,7 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
                     + " WHERE Id_utente = ? ";
 
             ps = conn.prepareStatement(sql);
-            ps.setLong(1, user.getid_utente());
+            ps.setLong(1, user.getId_utente());
             ps.executeUpdate();
             ps.close();
 
@@ -424,7 +419,7 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
                     + " WHERE Id_utente = ? ";
 
             ps = conn.prepareStatement(sql);
-            ps.setLong(1, user.getid_utente());
+            ps.setLong(1, user.getId_utente());
             ps.executeUpdate();
             ps.close();
 
@@ -438,7 +433,7 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
 
         Utente user = new Utente();
         try {
-            user.setid_utente(rs.getLong("Id_utente"));
+            user.setId_utente(rs.getLong("Id_utente"));
         } catch (SQLException sqle) {
         }
         try {
@@ -450,7 +445,7 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
         } catch (SQLException sqle) {
         }
         try {
-            user.setemail(rs.getString("Email"));
+            user.setEmail(rs.getString("Email"));
         } catch (SQLException sqle) {
         }
         try {
@@ -466,15 +461,15 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
         } catch (SQLException sqle) {
         }
         try {
-            user.setindirizzo(rs.getString("Indirizzo"));
+            user.setIndirizzo(rs.getString("Indirizzo"));
         } catch (SQLException sqle) {
         }
         try {
-            user.setstato(rs.getString("Stato"));
+            user.setStato(rs.getString("Stato"));
         } catch (SQLException sqle) {
         }
         try {
-            user.setcitta(rs.getString("Città"));
+            user.setCitta(rs.getString("Città"));
         } catch (SQLException sqle) {
         }
         try {
@@ -482,7 +477,7 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
         } catch (SQLException sqle) {
         }
         try {
-            user.setcap(rs.getLong("CAP"));
+            user.setCap(rs.getLong("CAP"));
         } catch (SQLException sqle) {
         }
         try {
