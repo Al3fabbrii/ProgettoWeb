@@ -46,14 +46,14 @@ public class CheckoutManagement {
 
             List<Cart> carts = (List<Cart>) request.getAttribute("carts");
             for(int i = 0; i < carts.size(); i++) {
-                if(carts.get(i).getQuantity() > carts.get(i).getProdotto().getquantita_disponibile()) {
-                    applicationMessage = "Errore: la quantita' richiesta di " + carts.get(i).getProdotto().getnome_prod() + " eccede la quantita' disponibile in magazzino";
+                if(carts.get(i).getQuantity() > carts.get(i).getProdotto().getQuantita_disponibile()) {
+                    applicationMessage = "Errore: la quantita' richiesta di " + carts.get(i).getProdotto().getNome_prod() + " eccede la quantita' disponibile in magazzino";
                     viewUrl = "cartManagement/view";
                 }
             }
 
             UtenteDAO userDAO = daoFactory.getUtenteDAO();
-            Utente user = userDAO.findByUserId(loggedUser.getid_utente());
+            Utente user = userDAO.findByUserId(loggedUser.getId_utente());
 
             daoFactory.commitTransaction();
             sessionDAOFactory.commitTransaction();
@@ -108,7 +108,7 @@ public class CheckoutManagement {
             cartRetrieve(daoFactory, sessionDAOFactory, request);
             List<Cart> carts = (List<Cart>) request.getAttribute("carts");
 
-            Long user_id = loggedUser.getid_utente();
+            Long user_id = loggedUser.getId_utente();
             UtenteDAO userDAO = daoFactory.getUtenteDAO();
             Utente current_user = userDAO.findByUserId(user_id);
             Date date = new Date();
@@ -136,12 +136,12 @@ public class CheckoutManagement {
                 );
 
                 //sottraggo dal db la quantita' di prodotti acquistati
-                prodottoDAO.updateAvalaibility(carts.get(i).getProdotto().getid_prod(), (int) quantity);
+                prodottoDAO.updateAvalaibility(carts.get(i).getProdotto().getId_prod(), (int) quantity);
 
             }
 
             //svuoto il carrello
-            Utente user = userDAO.findByUserId(loggedUser.getid_utente());
+            Utente user = userDAO.findByUserId(loggedUser.getId_utente());
             CartDAO cartDAO = daoFactory.getCartDAO();
             cartDAO.deleteCart(user);
 
@@ -227,7 +227,7 @@ public class CheckoutManagement {
         Utente loggedUser;
         loggedUser = sessionUserDAO.findLoggedUser();
 
-        Utente user = userDAO.findByUserId(loggedUser.getid_utente());
+        Utente user = userDAO.findByUserId(loggedUser.getId_utente());
 
         CartDAO cartDAO = daoFactory.getCartDAO();
         List<Cart> carts;
@@ -243,10 +243,10 @@ public class CheckoutManagement {
 
         int i=0;
         for (i = 0; i < carts.size(); i++) {
-            prodotto=prodottoDAO.findByProdId(carts.get(i).getProdotto().getid_prod());
+            prodotto=prodottoDAO.findByProdId(carts.get(i).getProdotto().getId_prod());
             Long quantity = carts.get(i).getQuantity();
             produts.add(prodotto);
-            subtotal = subtotal.add(prodotto.getprezzo().multiply(new BigDecimal(quantity)));
+            subtotal = subtotal.add(prodotto.getPrezzo().multiply(new BigDecimal(quantity)));
             carts.get(i).setProdotto(prodotto);
         }
 

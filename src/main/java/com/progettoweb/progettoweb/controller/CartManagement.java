@@ -95,7 +95,7 @@ public class CartManagement {
             Prodotto prodotto = prodottoDAO.findByProdId(id_prod);
 
             UtenteDAO userDAO = daoFactory.getUtenteDAO();
-            Utente user = userDAO.findByUserId(loggedUser.getid_utente());
+            Utente user = userDAO.findByUserId(loggedUser.getId_utente());
 
             CartDAO cartDAO = daoFactory.getCartDAO();
             try {
@@ -171,7 +171,7 @@ public class CartManagement {
             Prodotto prodotto = prodottoDAO.findByProdId(id_prod);
 
             UtenteDAO userDAO = daoFactory.getUtenteDAO();
-            Utente user = userDAO.findByUserId(loggedUser.getid_utente());
+            Utente user = userDAO.findByUserId(loggedUser.getId_utente());
 
             CartDAO cartDAO = daoFactory.getCartDAO();
 
@@ -238,7 +238,7 @@ public class CartManagement {
             Prodotto prodotto = prodottoDAO.findByProdId(id_prod);
 
             UtenteDAO userDAO = daoFactory.getUtenteDAO();
-            Utente user = userDAO.findByUserId(loggedUser.getid_utente());
+            Utente user = userDAO.findByUserId(loggedUser.getId_utente());
 
             CartDAO cartDAO = daoFactory.getCartDAO();
 
@@ -301,7 +301,7 @@ public class CartManagement {
             String viewUrl = new String(request.getParameter("viewUrl"));
 
             UtenteDAO userDAO = daoFactory.getUtenteDAO();
-            Utente user = userDAO.findByUserId(loggedUser.getid_utente());
+            Utente user = userDAO.findByUserId(loggedUser.getId_utente());
 
             CartDAO cartDAO = daoFactory.getCartDAO();
 
@@ -347,7 +347,7 @@ public class CartManagement {
         Utente loggedUser;
         loggedUser = sessionUserDAO.findLoggedUser();
 
-        Utente user = userDAO.findByUserId(loggedUser.getid_utente());
+        Utente user = userDAO.findByUserId(loggedUser.getId_utente());
 
         CartDAO cartDAO = daoFactory.getCartDAO();
         List<Cart> carts;
@@ -363,10 +363,10 @@ public class CartManagement {
 
         int i=0;
         for (i = 0; i < carts.size(); i++) {
-            prodotto=prodottoDAO.findByProdId(carts.get(i).getProdotto().getid_prod());
+            prodotto=prodottoDAO.findByProdId(carts.get(i).getProdotto().getId_prod());
             Long quantity = carts.get(i).getQuantity();
             products.add(prodotto);
-            subtotal = subtotal.add(prodotto.getprezzo().multiply(new BigDecimal(quantity)));
+            subtotal = subtotal.add(prodotto.getPrezzo().multiply(new BigDecimal(quantity)));
             carts.get(i).setProdotto(prodotto);
         }
 

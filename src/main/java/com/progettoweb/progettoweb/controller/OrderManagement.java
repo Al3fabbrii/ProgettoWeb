@@ -189,7 +189,7 @@ public class OrderManagement {
         Utente loggedUser;
         loggedUser = sessionUserDAO.findLoggedUser();
 
-        Utente user = userDAO.findByUserId(loggedUser.getid_utente());
+        Utente user = userDAO.findByUserId(loggedUser.getId_utente());
 
         CartDAO cartDAO = daoFactory.getCartDAO();
         List<Cart> carts;
@@ -203,7 +203,7 @@ public class OrderManagement {
 
         int i=0;
         for (i = 0; i < carts.size(); i++) {
-            product=productDAO.findByProdId(carts.get(i).getProdotto().getid_prod());
+            product=productDAO.findByProdId(carts.get(i).getProdotto().getId_prod());
             products.add(product);
             carts.get(i).setProdotto(product);
         }
@@ -225,7 +225,7 @@ public class OrderManagement {
 
         Utente loggedUser;
         loggedUser = sessionUserDAO.findLoggedUser();
-        Utente user = userDAO.findByUserId(loggedUser.getid_utente());
+        Utente user = userDAO.findByUserId(loggedUser.getId_utente());
 
         Timestamp order_timestamp = new java.sql.Timestamp(Long.parseLong(request.getParameter("order_date")));
 
@@ -240,7 +240,7 @@ public class OrderManagement {
 
         int i = 0;
         for (i = 0; i < order_tuples.size(); i++) {
-            prodotto = prodottoDAO.findByProdId(order_tuples.get(i).getProduct().getid_prod());
+            prodotto = prodottoDAO.findByProdId(order_tuples.get(i).getProduct().getId_prod());
             products.add(prodotto);
             order_tuples.get(i).setProduct(prodotto);
         }
@@ -255,7 +255,7 @@ public class OrderManagement {
         Utente loggedUser;
         loggedUser = sessionUserDAO.findLoggedUser();
 
-        Utente user = userDAO.findByUserId(loggedUser.getid_utente());
+        Utente user = userDAO.findByUserId(loggedUser.getId_utente());
 
         OrderDAO orderDAO = daoFactory.getOrderDAO();
         List<Order> order_tuples;
@@ -266,7 +266,7 @@ public class OrderManagement {
         ArrayList<Prodotto> products = new ArrayList<Prodotto>() ;
 
         for (int i = 0; i < order_tuples.size(); i++) {
-            prodotto=prodottoDAO.findByProdId(order_tuples.get(i).getProduct().getid_prod());
+            prodotto=prodottoDAO.findByProdId(order_tuples.get(i).getProduct().getId_prod());
             products.add(prodotto);
             order_tuples.get(i).setProduct(prodotto);
         }

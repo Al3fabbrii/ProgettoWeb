@@ -355,13 +355,13 @@ public class ProductManagement extends HttpServlet {
             BigDecimal price = new BigDecimal(request.getParameter("Prezzo"));
             int avalaibility = Integer.parseInt(request.getParameter("Quantità_disp"));
 
-            prodotto.setnome_prod(request.getParameter("Nome"));
-            prodotto.setsede_acquisto(request.getParameter("Sede_acquisto"));
-            prodotto.setdescrizione(request.getParameter("Descrizione"));
-            prodotto.setprezzo(price);
-            prodotto.setquantita_disponibile(avalaibility);
-            prodotto.setcategoria(request.getParameter("Categoria"));
-            prodotto.setimg_path(photo);
+            prodotto.setNome_prod(request.getParameter("Nome"));
+            prodotto.setMarca(request.getParameter("Marca"));
+            prodotto.setDescrizione(request.getParameter("Descrizione"));
+            prodotto.setPrezzo(price);
+            prodotto.setQuantita_disponibile(avalaibility);
+            prodotto.setCategoria(request.getParameter("Categoria"));
+            prodotto.setImg_path(photo);
 
             try {
                 prodottoDAO.modify(prodotto);

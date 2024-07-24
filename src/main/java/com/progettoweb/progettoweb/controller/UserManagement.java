@@ -459,7 +459,7 @@ public class UserManagement {
 
         int i = 0;
         for (i = 0; i < order_tuples.size(); i++) {
-            prod = prodDAO.findByProdId(order_tuples.get(i).getProduct().getid_prod());
+            prod = prodDAO.findByProdId(order_tuples.get(i).getProduct().getId_prod());
             products.add(prod);
             order_tuples.get(i).setProduct(prod);
         }
@@ -486,7 +486,7 @@ public class UserManagement {
 
         int i=0;
         for (i = 0; i < order_tuples.size(); i++) {
-            prodotto=prodottoDAO.findByProdId(order_tuples.get(i).getProduct().getid_prod());
+            prodotto=prodottoDAO.findByProdId(order_tuples.get(i).getProduct().getId_prod());
             products.add(prodotto);
             order_tuples.get(i).setProduct(prodotto);
         }

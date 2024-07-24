@@ -144,7 +144,7 @@ public class UserProfile {
             daoFactory.beginTransaction();
 
             UtenteDAO userDAO = daoFactory.getUtenteDAO();
-            Utente user = userDAO.findByUserId(loggedUser.getid_utente());
+            Utente user = userDAO.findByUserId(loggedUser.getId_utente());
 
             Long cap;
             Long cvc;
@@ -152,7 +152,7 @@ public class UserProfile {
             try {
                 if (!request.getParameter("CAP").isEmpty()){
                     cap = Long.parseLong(request.getParameter("CAP"));
-                    user.setcap(cap);
+                    user.setCap(cap);
                 }
                 if (!request.getParameter("cvc").isEmpty()){
                     cvc = Long.parseLong(request.getParameter("cvc"));
@@ -161,10 +161,10 @@ public class UserProfile {
 
                 user.setNome(request.getParameter("Nome"));
                 user.setCognome(request.getParameter("Cognome"));
-                user.setemail(request.getParameter("Email"));
+                user.setEmail(request.getParameter("Email"));
                 user.setPassword(request.getParameter("Password"));
-                user.setindirizzo(request.getParameter("Indirizzo"));
-                user.setcitta(request.getParameter("Città"));
+                user.setIndirizzo(request.getParameter("Indirizzo"));
+                user.setCitta(request.getParameter("Città"));
                 //user.setCap(cap);
                 user.setUsername(request.getParameter("Username"));
                 user.setCard_n(request.getParameter("card_n"));
@@ -309,7 +309,7 @@ public class UserProfile {
             userRetrieve(daoFactory, sessionDAOFactory, request);
 
             UtenteDAO userDAO = daoFactory.getUtenteDAO();
-            Utente user = userDAO.findByUserId(loggedUser.getid_utente());
+            Utente user = userDAO.findByUserId(loggedUser.getId_utente());
 
             try {
                 userDAO.deleteCarta(user);
@@ -368,7 +368,7 @@ public class UserProfile {
             userRetrieve(daoFactory, sessionDAOFactory, request);
 
             UtenteDAO userDAO = daoFactory.getUtenteDAO();
-            Utente user = userDAO.findByUserId(loggedUser.getid_utente());
+            Utente user = userDAO.findByUserId(loggedUser.getId_utente());
 
             try {
                 userDAO.deleteSpedizione(user);
@@ -449,7 +449,7 @@ public class UserProfile {
         Utente loggedUser = sessionUserDAO.findLoggedUser();
 
         UtenteDAO userDAO = daoFactory.getUtenteDAO();
-        Utente user = userDAO.findByUserId(loggedUser.getid_utente());
+        Utente user = userDAO.findByUserId(loggedUser.getId_utente());
         request.setAttribute("user", user);
     }
 

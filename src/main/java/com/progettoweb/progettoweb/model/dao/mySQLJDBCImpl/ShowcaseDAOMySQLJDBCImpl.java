@@ -149,7 +149,7 @@ public class ShowcaseDAOMySQLJDBCImpl implements ShowcaseDAO {
                     + " id_prod=?";
 
             ps = conn.prepareStatement(sql);
-            ps.setLong(1, prodotto.getid_prod());
+            ps.setLong(1, prodotto.getId_prod());
             ps.executeUpdate();
             ps.close();
 

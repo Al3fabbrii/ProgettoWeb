@@ -141,7 +141,7 @@ public class HomeManagement {
                     applicationMessage = "Account eliminato!";
                     loggedUser=null;
                 } else {
-                    loggedUser = sessionUserDAO.create(user.getid_utente(), null,null, null, user.getNome(),user.getCognome(), null, null, null, null, user.getAdmin(), user.getBlocked(), null, null,null);
+                    loggedUser = sessionUserDAO.create(user.getId_utente(), null,null, null, user.getNome(),user.getCognome(), null, null, null, null, user.getAdmin(), user.getBlocked(), null, null,null);
                 }
                 //loggedUser = sessionUserDAO.create(user.getid_utente(), null,null, null, user.getNome(),user.getCognome(), null, null, null, null, user.getAdmin(), user.getBlocked(), null, null,null);
             }
@@ -278,7 +278,7 @@ public class HomeManagement {
 
             Long user_id;
             try {
-                user_id = loggedUser.getid_utente();
+                user_id = loggedUser.getId_utente();
             } catch (NullPointerException e) {
                 user_id = null;
             }
@@ -421,7 +421,7 @@ public class HomeManagement {
 
             if(loggedUser != null && !"N".equals(loggedUser.getAdmin())) {
                 try {
-                    long user_id = loggedUser.getid_utente();
+                    long user_id = loggedUser.getId_utente();
                 } catch (NullPointerException e) {
                     logger.log(Level.SEVERE, "Controller Error (user_id)", e);
                 }

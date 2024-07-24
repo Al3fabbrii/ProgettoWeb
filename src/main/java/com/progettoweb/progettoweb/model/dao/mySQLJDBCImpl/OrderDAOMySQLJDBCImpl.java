@@ -53,8 +53,8 @@ public class OrderDAOMySQLJDBCImpl implements OrderDAO {
 
             ps = conn.prepareStatement(sql);
             int i = 1;
-            ps.setLong(i++, order.getUser().getid_utente());
-            ps.setLong(i++, order.getProduct().getid_prod());
+            ps.setLong(i++, order.getUser().getId_utente());
+            ps.setLong(i++, order.getProduct().getId_prod());
             ps.setLong(i++, order.getQuantity());
             ps.setString(i++, order.getStatus());
             ps.setTimestamp(i++, order.getTimestamp());
@@ -78,7 +78,7 @@ public class OrderDAOMySQLJDBCImpl implements OrderDAO {
 
         try {
 
-            Long user_id = user.getid_utente();
+            Long user_id = user.getId_utente();
             String sql
                     = " SELECT *"
                     + " FROM `order`"
@@ -116,7 +116,7 @@ public class OrderDAOMySQLJDBCImpl implements OrderDAO {
 
         try {
 
-            Long user_id = user.getid_utente();
+            Long user_id = user.getId_utente();
             String sql
                     = " SELECT *"
                     + " FROM `order`"
@@ -154,7 +154,7 @@ public class OrderDAOMySQLJDBCImpl implements OrderDAO {
 
         try {
 
-            Long user_id = user.getid_utente();
+            Long user_id = user.getId_utente();
             String sql
                     = " SELECT *"
                     + " FROM `order`"
@@ -210,11 +210,11 @@ public class OrderDAOMySQLJDBCImpl implements OrderDAO {
         } catch (SQLException sqle) {
         }
         try {
-            order.getUser().setid_utente(rs.getLong("utente_id"));
+            order.getUser().setId_utente(rs.getLong("utente_id"));
         } catch (SQLException sqle) {
         }
         try {
-            order.getProduct().setid_prod(rs.getLong("product_id"));
+            order.getProduct().setId_prod(rs.getLong("product_id"));
         } catch (SQLException sqle) {
         }
         try {

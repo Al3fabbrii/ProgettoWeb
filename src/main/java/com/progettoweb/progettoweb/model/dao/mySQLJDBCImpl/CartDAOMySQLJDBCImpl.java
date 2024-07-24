@@ -44,8 +44,8 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
 
             ps = conn.prepareStatement(sql);
             int i = 1;
-            ps.setLong(i++, cart.getUser().getid_utente());
-            ps.setLong(i++, cart.getProdotto().getid_prod());
+            ps.setLong(i++, cart.getUser().getId_utente());
+            ps.setLong(i++, cart.getProdotto().getId_prod());
 
             ResultSet resultSet = ps.executeQuery();
 
@@ -94,8 +94,8 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
 
             ps = conn.prepareStatement(sql);
             i = 1;
-            ps.setLong(i++, cart.getUser().getid_utente());
-            ps.setLong(i++, cart.getProdotto().getid_prod());
+            ps.setLong(i++, cart.getUser().getId_utente());
+            ps.setLong(i++, cart.getProdotto().getId_prod());
 
             ps.executeUpdate();
 
@@ -129,8 +129,8 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
 
             ps = conn.prepareStatement(sql);
             int i = 1;
-            ps.setLong(i++, cart.getUser().getid_utente());
-            ps.setLong(i++, cart.getProdotto().getid_prod());
+            ps.setLong(i++, cart.getUser().getId_utente());
+            ps.setLong(i++, cart.getProdotto().getId_prod());
 
             ResultSet resultSet = ps.executeQuery();
             resultSet.next();
@@ -205,8 +205,8 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
 
             ps = conn.prepareStatement(sql);
             int i = 1;
-            ps.setLong(i++, cart.getUser().getid_utente());
-            ps.setLong(i++, cart.getProdotto().getid_prod());
+            ps.setLong(i++, cart.getUser().getId_utente());
+            ps.setLong(i++, cart.getProdotto().getId_prod());
 
             ResultSet resultSet = ps.executeQuery();
             resultSet.next();
@@ -247,7 +247,7 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
 
         try {
 
-            Long user_id = user.getid_utente();
+            Long user_id = user.getId_utente();
             String sql
                     = " SELECT *"
                     + " FROM cart"
@@ -297,7 +297,7 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
 
             ps = conn.prepareStatement(sql);
             int i = 1;
-            ps.setLong(i++, user.getid_utente());
+            ps.setLong(i++, user.getId_utente());
 
             ps.executeUpdate();
 
@@ -318,11 +318,11 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
         } catch (SQLException sqle) {
         }
         try {
-            cart.getUser().setid_utente(rs.getLong("user_id"));
+            cart.getUser().setId_utente(rs.getLong("user_id"));
         } catch (SQLException sqle) {
         }
         try {
-            cart.getProdotto().setid_prod(rs.getLong("prod_id"));
+            cart.getProdotto().setId_prod(rs.getLong("prod_id"));
         } catch (SQLException sqle) {
         }
         try {

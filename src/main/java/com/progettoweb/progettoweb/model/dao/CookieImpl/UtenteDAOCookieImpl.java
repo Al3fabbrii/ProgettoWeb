@@ -39,7 +39,7 @@ public class UtenteDAOCookieImpl implements UtenteDAO{
     ) {
 
         Utente loggedUser = new Utente();
-        loggedUser.setid_utente(id_utente);
+        loggedUser.setId_utente(id_utente);
         loggedUser.setNome(nome);
         loggedUser.setCognome(cognome);
         loggedUser.setAdmin(admin);
@@ -92,29 +92,29 @@ public class UtenteDAOCookieImpl implements UtenteDAO{
     }
     @Override
     public Utente findByUserId(Long user_id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("Not supported.");
     }
     @Override
     public List<Utente> searchByUsername(String username) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("Not supported.");
     }
 
     @Override
-    public void setAdminStatusOn(Utente user) { throw new UnsupportedOperationException("Not supported yet.");
+    public void setAdminStatusOn(Utente user) { throw new UnsupportedOperationException("Not supported.");
     }
 
     @Override
-    public void setAdminStatusOff(Utente user) { throw new UnsupportedOperationException("Not supported yet.");
+    public void setAdminStatusOff(Utente user) { throw new UnsupportedOperationException("Not supported.");
     }
     @Override
     public Utente findByUsername(String username) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("Not supported.");
     }
     private String encode(Utente loggedUser) {
         String name = loggedUser.getNome().replace(" ","%fv");  // sostituisco lo spazio con %fv
         String surname = loggedUser.getCognome().replace(" ","%fv");    // sostituisco lo spazio
         String encodedLoggedUser;
-        encodedLoggedUser = loggedUser.getid_utente() + "#" + name + "#" + surname + "#" + loggedUser.getAdmin();
+        encodedLoggedUser = loggedUser.getId_utente() + "#" + name + "#" + surname + "#" + loggedUser.getAdmin();
         return encodedLoggedUser;
     }
     private Utente decode(String encodedLoggedUser) {
@@ -125,7 +125,7 @@ public class UtenteDAOCookieImpl implements UtenteDAO{
         String nameD = values[1].replace("%fv", " ");   // riporto ad originale
         String surnameD = values[2].replace("%fv", " ");   // riporto ad originale
 
-        loggedUser.setid_utente(Long.parseLong(values[0]));
+        loggedUser.setId_utente(Long.parseLong(values[0]));
         loggedUser.setNome(nameD);
         loggedUser.setCognome(surnameD);
         loggedUser.setAdmin((values[3]));
@@ -134,15 +134,15 @@ public class UtenteDAOCookieImpl implements UtenteDAO{
     }
     @Override
     public List<Utente> findAll() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("Not supported.");
     }
     @Override
     public void deleteSpedizione(Utente user) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("Not supported.");
     }
 
     @Override
     public void deleteCarta(Utente user) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("Not supported.");
     }
 }
