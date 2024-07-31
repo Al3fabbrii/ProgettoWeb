@@ -27,7 +27,7 @@ public class Dispatcher extends HttpServlet {
             if (controllerAction==null) controllerAction="HomeManagement.view";
 
             String[] splittedAction=controllerAction.split("\\.");
-            Class<?> controllerClass=Class.forName("org.fruttaeverdura.fruttaeverdura.controller."+splittedAction[0]);
+            Class<?> controllerClass=Class.forName("com.progettoweb.progettoweb.controller."+splittedAction[0]);
             Method controllerMethod=controllerClass.getMethod(splittedAction[1],HttpServletRequest.class,HttpServletResponse.class);
             LogService.getApplicationLogger().log(Level.INFO,splittedAction[0]+" "+splittedAction[1]);
             controllerMethod.invoke(null,request,response);
