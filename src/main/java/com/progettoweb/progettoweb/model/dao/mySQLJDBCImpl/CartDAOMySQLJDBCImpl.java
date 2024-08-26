@@ -36,16 +36,16 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
 
             String sql
                     = " SELECT * "
-                    + " FROM cart "
+                    + " FROM carrello "
                     + " WHERE "
-                    + " deleted ='0' AND "
-                    + " user_id = ? AND"
-                    + " prod_id = ?";
+                    + " Deleted ='0' AND "
+                    + " Id_utente = ? AND"
+                    + " Id_prod = ?";
 
             ps = conn.prepareStatement(sql);
             int i = 1;
-            ps.setLong(i++, cart.getUser().getId_utente());
-            ps.setLong(i++, cart.getProdotto().getId_prod());
+            ps.setLong(i++, cart.getUser().getid_utente());
+            ps.setLong(i++, cart.getProdotto().getid_prod());
 
             ResultSet resultSet = ps.executeQuery();
 
@@ -64,9 +64,9 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
                 try{
                     Long newquantity = oldquantity + 1;
                     sql
-                            = " UPDATE cart "
+                            = " UPDATE carrello "
                             + " SET "
-                            + " quantity = ?"
+                            + " Quantità = ?"
                             + " WHERE "
                             + "   cart_id = ? ";
 
@@ -84,18 +84,18 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
                 throw new DuplicatedObjectException("CartDAOJDBCImpl.create: Tentativo di creazione di un oggetto nel carrello gia esistente");
             }
             sql
-                    = " INSERT INTO cart "
-                    + "     (user_id,"
-                    + "     prod_id,"
-                    + "     quantity,"
-                    + "     deleted "
+                    = " INSERT INTO carrello "
+                    + "     (Id_utente,"
+                    + "     Id_prod,"
+                    + "     Quantità,"
+                    + "     Deleted "
                     + "   ) "
                     + " VALUES (?,?,1,'0')";
 
             ps = conn.prepareStatement(sql);
             i = 1;
-            ps.setLong(i++, cart.getUser().getId_utente());
-            ps.setLong(i++, cart.getProdotto().getId_prod());
+            ps.setLong(i++, cart.getUser().getid_utente());
+            ps.setLong(i++, cart.getProdotto().getid_prod());
 
             ps.executeUpdate();
 
@@ -121,16 +121,16 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
 
             String sql
                     = " SELECT * "
-                    + " FROM cart "
+                    + " FROM carrello "
                     + " WHERE "
-                    + " deleted ='0' AND "
-                    + " user_id = ? AND"
-                    + " prod_id = ?";
+                    + " Deleted ='0' AND "
+                    + " Id_utente = ? AND"
+                    + " Id_prod = ?";
 
             ps = conn.prepareStatement(sql);
             int i = 1;
-            ps.setLong(i++, cart.getUser().getId_utente());
-            ps.setLong(i++, cart.getProdotto().getId_prod());
+            ps.setLong(i++, cart.getUser().getid_utente());
+            ps.setLong(i++, cart.getProdotto().getid_prod());
 
             ResultSet resultSet = ps.executeQuery();
             resultSet.next();
@@ -147,10 +147,10 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
 
                 //elimino la tupla , setto anche la quantità = 0
                 sql
-                        = " UPDATE cart "
+                        = " UPDATE carrello "
                         + " SET "
-                        + " deleted = '1', "
-                        + " quantity = 0"
+                        + " Deleted = '1', "
+                        + " Quantità = 0"
                         + " WHERE "
                         + "   cart_id = ? ";
 
@@ -163,9 +163,9 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
 
             //aggiorno la tupla con la nuova quantità
             sql
-                    = " UPDATE cart "
+                    = " UPDATE carrello "
                     + " SET "
-                    + " quantity = ?"
+                    + " Quantità = ?"
                     + " WHERE "
                     + "   cart_id = ? ";
 
@@ -197,16 +197,16 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
             // recupero il cart_id
             String sql
                     = " SELECT * "
-                    + " FROM cart "
+                    + " FROM carrello "
                     + " WHERE "
-                    + " deleted ='0' AND "
-                    + " user_id = ? AND"
-                    + " prod_id = ?";
+                    + " Deleted ='0' AND "
+                    + " Id_utente = ? AND"
+                    + " Id_prod = ?";
 
             ps = conn.prepareStatement(sql);
             int i = 1;
-            ps.setLong(i++, cart.getUser().getId_utente());
-            ps.setLong(i++, cart.getProdotto().getId_prod());
+            ps.setLong(i++, cart.getUser().getid_utente());
+            ps.setLong(i++, cart.getProdotto().getid_prod());
 
             ResultSet resultSet = ps.executeQuery();
             resultSet.next();
@@ -217,10 +217,10 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
 
             //elimino la tupla , setto anche la quantità = 0
             sql
-                    = " UPDATE cart "
+                    = " UPDATE carrello "
                     + " SET "
-                    + " deleted = '1', "
-                    + " quantity = 0"
+                    + " Deleted = '1', "
+                    + " Quantità = 0"
                     + " WHERE "
                     + "   cart_id = ? ";
 
@@ -247,13 +247,13 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
 
         try {
 
-            Long user_id = user.getId_utente();
+            Long user_id = user.getid_utente();
             String sql
                     = " SELECT *"
-                    + " FROM cart"
+                    + " FROM carrello"
                     + " WHERE "
-                    + " deleted ='0' AND"
-                    + " user_id = ? ";
+                    + " Deleted ='0' AND"
+                    + " Id_utente = ? ";
 
             ps = conn.prepareStatement(sql);
             int i = 1;
@@ -288,16 +288,16 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
 
             //elimino le tuple con user_id corretto, setto anche la quantità = 0
             String sql
-                    = " UPDATE cart "
+                    = " UPDATE carrello "
                     + " SET "
-                    + " deleted = '1', "
-                    + " quantity = 0"
+                    + " Deleted = '1', "
+                    + " Quantità = 0"
                     + " WHERE "
-                    + "   user_id = ? ";
+                    + "   Id_utente = ? ";
 
             ps = conn.prepareStatement(sql);
             int i = 1;
-            ps.setLong(i++, user.getId_utente());
+            ps.setLong(i++, user.getid_utente());
 
             ps.executeUpdate();
 
@@ -318,19 +318,19 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
         } catch (SQLException sqle) {
         }
         try {
-            cart.getUser().setId_utente(rs.getLong("user_id"));
+            cart.getUser().setid_utente(rs.getLong("Id_utente"));
         } catch (SQLException sqle) {
         }
         try {
-            cart.getProdotto().setId_prod(rs.getLong("prod_id"));
+            cart.getProdotto().setid_prod(rs.getLong("Id_prod"));
         } catch (SQLException sqle) {
         }
         try {
-            cart.setQuantity(rs.getLong("quantity"));
+            cart.setQuantity(rs.getLong("Quantità"));
         } catch (SQLException sqle) {
         }
         try {
-            cart.setDeleted(rs.getString("deleted").equals("1"));
+            cart.setDeleted(rs.getString("Deleted").equals("1"));
         } catch (SQLException sqle) {
         }
         return cart;

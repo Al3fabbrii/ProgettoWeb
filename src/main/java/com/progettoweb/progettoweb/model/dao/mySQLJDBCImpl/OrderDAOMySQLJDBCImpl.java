@@ -40,21 +40,21 @@ public class OrderDAOMySQLJDBCImpl implements OrderDAO {
 
         try {
             String sql
-                    = " INSERT INTO `order` "
-                    + "   ( utente_id,"
-                    + "     product_id,"
-                    + "     quantity,"
-                    + "     status,"
-                    + "     `timestamp`,"
-                    + "     total_amount,"
-                    + "     deleted "
+                    = " INSERT INTO `ordine` "
+                    + "   ( Id_utente,"
+                    + "     Id_prod,"
+                    + "     Quantità,"
+                    + "     Stato,"
+                    + "     `Timestamp`,"
+                    + "     Totale,"
+                    + "     Deleted "
                     + "   ) "
                     + " VALUES (?,?,?,?,?,?,'0')";
 
             ps = conn.prepareStatement(sql);
             int i = 1;
-            ps.setLong(i++, order.getUser().getId_utente());
-            ps.setLong(i++, order.getProduct().getId_prod());
+            ps.setLong(i++, order.getUser().getid_utente());
+            ps.setLong(i++, order.getProduct().getid_prod());
             ps.setLong(i++, order.getQuantity());
             ps.setString(i++, order.getStatus());
             ps.setTimestamp(i++, order.getTimestamp());
@@ -78,13 +78,13 @@ public class OrderDAOMySQLJDBCImpl implements OrderDAO {
 
         try {
 
-            Long user_id = user.getId_utente();
+            Long user_id = user.getid_utente();
             String sql
                     = " SELECT *"
-                    + " FROM `order`"
+                    + " FROM `ordine`"
                     + " WHERE "
-                    + " deleted ='0' AND"
-                    + " utente_id = ? "
+                    + " Deleted ='0' AND"
+                    + " Id_utente = ? "
                     + " ORDER BY timestamp DESC ";
 
             ps = conn.prepareStatement(sql);
@@ -116,12 +116,12 @@ public class OrderDAOMySQLJDBCImpl implements OrderDAO {
 
         try {
 
-            Long user_id = user.getId_utente();
+            Long user_id = user.getid_utente();
             String sql
                     = " SELECT *"
-                    + " FROM `order`"
+                    + " FROM `ordine`"
                     + " WHERE "
-                    + " deleted ='0' AND"
+                    + " Deleted ='0' AND"
                     + " timestamp = ? AND"
                     + " utente_id = ? ";
 
@@ -154,12 +154,12 @@ public class OrderDAOMySQLJDBCImpl implements OrderDAO {
 
         try {
 
-            Long user_id = user.getId_utente();
+            Long user_id = user.getid_utente();
             String sql
                     = " SELECT *"
-                    + " FROM `order`"
+                    + " FROM `ordine`"
                     + " WHERE "
-                    + " deleted ='0' AND"
+                    + " Deleted ='0' AND"
                     + " timestamp = ? AND"
                     + " utente_id = ? ";
 
@@ -177,13 +177,13 @@ public class OrderDAOMySQLJDBCImpl implements OrderDAO {
             resultSet.close();
 
             sql
-                    = " UPDATE `order` "
+                    = " UPDATE `ordine` "
                     + " SET "
-                    + " status = ?"
+                    + " Stato = ?"
                     + " WHERE "
-                    + " deleted ='0' AND"
+                    + " Deleted ='0' AND"
                     + " timestamp = ? AND"
-                    + " utente_id = ? ";
+                    + " Id_utente = ? ";
 
             ps = conn.prepareStatement(sql);
             int i = 1;
@@ -210,31 +210,31 @@ public class OrderDAOMySQLJDBCImpl implements OrderDAO {
         } catch (SQLException sqle) {
         }
         try {
-            order.getUser().setId_utente(rs.getLong("utente_id"));
+            order.getUser().setid_utente(rs.getLong("Id_utente"));
         } catch (SQLException sqle) {
         }
         try {
-            order.getProduct().setId_prod(rs.getLong("product_id"));
+            order.getProduct().setid_prod(rs.getLong("Id_prod"));
         } catch (SQLException sqle) {
         }
         try {
-            order.setQuantity(rs.getLong("quantity"));
+            order.setQuantity(rs.getLong("Quantità"));
         } catch (SQLException sqle) {
         }
         try {
-            order.setStatus(rs.getString("status"));
+            order.setStatus(rs.getString("Stato"));
         } catch (SQLException sqle) {
         }
         try {
-            order.setTimestamp(rs.getTimestamp("timestamp"));
+            order.setTimestamp(rs.getTimestamp("Timestamp"));
         } catch (SQLException sqle) {
         }
         try {
-            order.setTotalAmount(rs.getBigDecimal("total_amount"));
+            order.setTotalAmount(rs.getBigDecimal("Totale"));
         } catch (SQLException sqle) {
         }
         try {
-            order.setDeleted(rs.getString("deleted").equals("1"));
+            order.setDeleted(rs.getString("Deleted").equals("1"));
         } catch (SQLException sqle) {
         }
         return order;

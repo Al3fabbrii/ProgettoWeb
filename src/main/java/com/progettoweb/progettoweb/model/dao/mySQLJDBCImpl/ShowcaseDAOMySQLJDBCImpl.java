@@ -32,7 +32,7 @@ public class ShowcaseDAOMySQLJDBCImpl implements ShowcaseDAO {
             sql
                     = " SELECT COUNT(*)num "
                     + " FROM showcase "
-                    + " WHERE deleted = '0' ";
+                    + " WHERE Deleted = '0' ";
             ps = conn.prepareStatement(sql);
 
             ResultSet rs = ps.executeQuery();
@@ -51,7 +51,7 @@ public class ShowcaseDAOMySQLJDBCImpl implements ShowcaseDAO {
                     = " SELECT * "
                     + " FROM showcase "
                     + " WHERE "
-                    + " id_prod = ? ";
+                    + " Id_prod = ? ";
 
             ps = conn.prepareStatement(sql);
             int i = 1;
@@ -76,7 +76,7 @@ public class ShowcaseDAOMySQLJDBCImpl implements ShowcaseDAO {
             if (exist && deleted) {
                 sql
                         = " UPDATE showcase "
-                        + " SET deleted = '0' "
+                        + " SET Deleted = '0' "
                         + " WHERE idshowcase = ? ";
                 ps = conn.prepareStatement(sql);
                 i = 1;
@@ -85,8 +85,8 @@ public class ShowcaseDAOMySQLJDBCImpl implements ShowcaseDAO {
             } else {
                 sql
                         = " INSERT INTO showcase "
-                        + " (id_prod, "
-                        + " deleted) "
+                        + " (Id_prod, "
+                        + " Deleted) "
                         + " VALUES (?,'0')";
 
                 ps = conn.prepareStatement(sql);
@@ -115,7 +115,7 @@ public class ShowcaseDAOMySQLJDBCImpl implements ShowcaseDAO {
                     = " SELECT *"
                     + " FROM showcase"
                     + " WHERE "
-                    + " deleted ='0'";
+                    + " Deleted ='0'";
 
             ps = conn.prepareStatement(sql);
 
@@ -144,9 +144,9 @@ public class ShowcaseDAOMySQLJDBCImpl implements ShowcaseDAO {
 
             String sql
                     = " UPDATE showcase "
-                    + " SET deleted='1' "
+                    + " SET Deleted='1' "
                     + " WHERE "
-                    + " id_prod=?";
+                    + " Id_prod=?";
 
             ps = conn.prepareStatement(sql);
             ps.setLong(1, prodotto.getId_prod());
@@ -166,11 +166,11 @@ public class ShowcaseDAOMySQLJDBCImpl implements ShowcaseDAO {
         } catch (SQLException sqle) {
         }
         try {
-            showcase.setId_prod(rs.getLong("id_prod"));
+            showcase.setId_prod(rs.getLong("Id_prod"));
         } catch (SQLException sqle) {
         }
         try {
-            showcase.setDeleted(rs.getString("deleted").equals("1"));
+            showcase.setDeleted(rs.getString("Deleted").equals("1"));
         } catch (SQLException sqle) {
         }
         return showcase;
