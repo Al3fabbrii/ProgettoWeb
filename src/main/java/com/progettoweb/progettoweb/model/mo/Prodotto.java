@@ -22,7 +22,7 @@ public class Prodotto {
     public Cart getCarts(int index) { return this.carts[index]; }
 
     public void setCarts(int index, Cart carts) {this.carts[index] = carts; }
-    public Long getid_prod() {return id_prod;}
+    public Long getId_prod() {return id_prod;}
     public void setid_prod(Long id_prod){this.id_prod=id_prod;}
     public String getnome_prod() {return nome_prod;}
     public void setnome_prod(String nome_prod){this.nome_prod=nome_prod;}
