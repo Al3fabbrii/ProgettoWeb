@@ -222,7 +222,6 @@ public class ProductManagement extends HttpServlet {
 
                 prodottoDAO.create(
                         request.getParameter("Nome"),
-                        request.getParameter("Sede_acquisto"),
                         request.getParameter("Descrizione"),
                         price,
                         avalaibility,
@@ -356,7 +355,6 @@ public class ProductManagement extends HttpServlet {
             int avalaibility = Integer.parseInt(request.getParameter("Quantità_disp"));
 
             prodotto.setNome_prod(request.getParameter("Nome"));
-            prodotto.setMarca(request.getParameter("Marca"));
             prodotto.setDescrizione(request.getParameter("Descrizione"));
             prodotto.setPrezzo(price);
             prodotto.setQuantita_disponibile(avalaibility);
