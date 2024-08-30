@@ -4,6 +4,8 @@
     <title>Title</title>
 </head>
 <body>
+<%@include file="/include/header.jsp"%>
 
+<%@include file="/include/footer.inc"%>
 </body>
 </html>

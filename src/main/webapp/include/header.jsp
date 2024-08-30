@@ -12,6 +12,7 @@
         width: 1440px;
         height: 230px;
         position: relative;
+        justify-content: center;
     }
 
     .desktop .overlap {
@@ -62,9 +63,9 @@
         width: 804px;
         height: 145px;
         top: 43px;
-        left: 267px;
+        left: 200px;
         background-color: #336699cc;
-        float: right;
+        float: initial ;
         border-radius: 40px;
         border: 2px solid;
         position: absolute;
@@ -114,15 +115,8 @@
     }
 </style>
 <header class="clearfix">
-    <h1 class="logo">E-gaming shop</h1>
-    <nav>
-        <ul>
-            <li>
-
-            </li>
-        </ul>
-    </nav>
     <div class="desktop">
+        <h1 class="logo">E-gaming shop</h1>
         <div class="div">
             <div class="overlap">
                 <img class="cart-shopping" src="https://www.svgrepo.com/show/533043/cart-shopping.svg" />
@@ -136,7 +130,6 @@
                 </div>
                 <img class="search-alt-svgrepo" src="https://www.svgrepo.com/show/532552/search-alt-2.svg" />
             </div>
-            <img class="line" src="img/line-1.svg" />
         </div>
     </div>
 </header>
