@@ -25,18 +25,16 @@
         width:50px;
         height: 50px;
     }
-    p{
-        text-align: center;
-        font-size: 2em;
-        color: white;
-    }
+
 </style>
 <header class="clearfix">
     <h1 class="logo" style="font-family: 'Games', sans-serif;
                             font-size:5.5em;
                             ">House of Games
     </h1>
-    <p>Accesso eseguito come amministratore</p>
+    <p style="text-align: center;
+              font-size: 2em;
+              color: white;">Accesso eseguito come amministratore</p>
 
     <section>
         <button onclick="location.href='Dispatcher?controllerAction=HomeManagement.view' " class="home">

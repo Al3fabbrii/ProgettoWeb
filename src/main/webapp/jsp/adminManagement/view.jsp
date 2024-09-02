@@ -41,7 +41,6 @@
             margin: auto;
             font-size: 2em;
             color: black;
-            border-color: black;
         }
     </style>
 </head>
@@ -50,8 +49,8 @@
 
 <main>
     <h2 class="section-title">Gestione dei prodotti</h2>
-    <div class="container2">
-        <button onclick="location.href='Dispatcher?controllerAction=ProductManagement.viewManagement'" class="button2">
+    <div class="container">
+        <button onclick="location.href='Dispatcher?controllerAction=ProductManagement.viewManagement'" class="button">
             Seleziona per gestire i tuoi prodotti
         </button>
     </div>
