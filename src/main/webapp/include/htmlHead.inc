@@ -1,8 +1,8 @@
 <meta charset="utf-8"/>
 
 <!-- Linking styles -->
-<link rel="stylesheet" href="css/stile.css" type="text/css" media="screen">
-<title>Ecommerce: <%=menuActiveLink%></title>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+<title>HouseOfGames: <%=menuActiveLink%></title>
 <script>
   var applicationMessage;
   <%if (applicationMessage != null) {%>

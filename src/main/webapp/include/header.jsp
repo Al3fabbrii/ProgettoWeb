@@ -1,6 +1,27 @@
+<script>
+    function headerOnLoadHandler() {
+        var usernameTextField = document.querySelector("#username");
+        var usernameTextFieldMsg = "Lo username \xE8 obbligatorio.";
+        var passwordTextField = document.querySelector("#password");
+        var passwordTextFieldMsg = "La password \xE8 obbligatoria.";
+
+        if (usernameTextField != undefined && passwordTextField != undefined ) {
+            usernameTextField.setCustomValidity(usernameTextFieldMsg);
+            usernameTextField.addEventListener("change", function () {
+                this.setCustomValidity(this.validity.valueMissing ? usernameTextFieldMsg : "");
+            });
+            passwordTextField.setCustomValidity(passwordTextFieldMsg);
+            passwordTextField.addEventListener("change", function () {
+                this.setCustomValidity(this.validity.valueMissing ? passwordTextFieldMsg : "");
+            });
+        }
+    }
+
+</script>
+
 <style>
     .desktop {
-        background-color: #b7b7b7;
+        background-color: #336699;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -8,20 +29,20 @@
     }
 
     .desktop .div {
-        background-color: #b7b7b7;
-        width: 1440px;
+        background-image: url("https://img.uhdpaper.com/wallpaper/playstation-buttons-background-digital-art-98@0@i-thumb.jpg?dl");
+        width: 100%;
         height: 230px;
         position: relative;
         justify-content: center;
+        align-items:center;
     }
 
     .desktop .overlap {
         width: 70px;
         height: 70px;
         top: 20px;
-        left: 1268px;
-        background-color: #336699;
-        float: left;
+        background-color: #4e9bdb;
+        float: right;
         border-radius: 35px;
         border: 3px solid;
         position: relative;
@@ -41,9 +62,9 @@
         width: 70px;
         height: 70px;
         top: 20px;
-        left:1300px;
-        background-color: #336699;
-        float: left;
+        left: -15px;
+        background-color: #4e9bdb;
+        float: right;
         border-radius: 35px;
         border: 3px solid;
         position: relative;
@@ -63,73 +84,55 @@
         width: 804px;
         height: 145px;
         top: 43px;
-        left: 200px;
-        background-color: #336699cc;
-        float: initial ;
+        left: 550px;
+        background-color: #4e9bdb;
+        font-family: "Inter-Regular", Helvetica;
+        text-align:left;
+        color: black;
+        font-size: 3em;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
         border-radius: 40px;
         border: 2px solid;
         position: absolute;
         border-color: #000000;
     }
 
-    .desktop .frame {
-        display: inline-flex;
-        height: 57px;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 10px;
-        position: absolute;
-        top: 42px;
-        left: 128px;
-    }
 
-    .desktop .text-wrapper {
-        position: relative;
-        width: fit-content;
-        margin-top: -0.5px;
-        font-family: "Inter-Regular", Helvetica;
-        font-weight: 400;
-        color: #ffffff;
-        font-size: 30px;
-        letter-spacing: 0;
-        line-height: normal;
-        white-space: nowrap;
+    ::placeholder{
+        color:black;
     }
-
     .desktop .search-alt-svgrepo {
-        position: absolute;
+        position: relative;
         width: 70px;
         height: 71px;
-        top: 35px;
-        left: 673px;
+        top: 70px;
+        left:1250px;
         object-fit: cover;
     }
 
-    .desktop .line {
-        position: absolute;
-        width: 1440px;
-        height: 5px;
-        top: 225px;
-        left: 0;
-    }
 </style>
 <header class="clearfix">
+    <h1 class="logo" style="font-family: 'Games', sans serif;
+                            font-size:5.5em;
+                            ">House of games shop</h1>
     <div class="desktop">
-        <h1 class="logo">E-gaming shop</h1>
+
         <div class="div">
             <div class="overlap">
                 <img class="cart-shopping" src="https://www.svgrepo.com/show/533043/cart-shopping.svg" />
             </div>
             <div class="overlap-group">
-                <img class="account-svgrepo-com" src="https://www.svgrepo.com/show/453660/account.svg" />
+                <img class="account-svgrepo-com" src="https://www.svgrepo.com/show/453660/account.svg" onclick="location.href='Dispatcher?controllerAction=HomeManagement.loginView' "/>
             </div>
-            <div class="overlap-group-2">
-                <div class="frame">
-                    <p class="text-wrapper">Cerca un videogioco che ti interessa</p>
-                </div>
+            <form id="searchForm" name="searchForm" action="Dispatcher" method="post" >
+                <input type="hidden" name="controllerAction" value="HomeManagement.searchView">
+                <input class="overlap-group-2" type="text" value="Cerca qui i prodotti che desideri">
                 <img class="search-alt-svgrepo" src="https://www.svgrepo.com/show/532552/search-alt-2.svg" />
-            </div>
+                <button type="submit" form="searchForm" hidden="hidden"></button>
+            </form>
+
         </div>
     </div>
 </header>

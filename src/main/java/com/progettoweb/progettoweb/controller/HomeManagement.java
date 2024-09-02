@@ -315,7 +315,8 @@ public class HomeManagement {
                 request.setAttribute("viewUrl", "homeManagement/registerView");
             } catch (Exception e){
                 applicationMessage = "Username troppo lungo - MAX 12 CARATTERI.";
-                logger.log(Level.INFO,"Tentativo di inserimento di un username già esistente.");
+                logger.log(Level.INFO,"Username troppo lungo.");
+                logger.log(Level.INFO,"Exception name: "+e.getMessage());
                 request.setAttribute("viewUrl", "homeManagement/registerView");
             }
 
@@ -344,7 +345,6 @@ public class HomeManagement {
         }
 
     }
-
     public static void productView(HttpServletRequest request, HttpServletResponse response) {
 
         DAOFactory sessionDAOFactory= null;

@@ -7,6 +7,7 @@
     String applicationMessage = (String) request.getAttribute("applicationMessage");
     String menuActiveLink = "Registration";
 %>
+
 <!DOCTYPE html>
 <html>
 <style>
@@ -320,26 +321,7 @@
         white-space: nowrap;
     }
 
-    .desktop .switch-field {
-        display: flex;
-        flex-direction: column;
-        width: 183px;
-        height: 36px;
-        align-items: flex-start;
-        position: absolute;
-        top: 537px;
-        left: 622px;
-    }
 
-    .desktop .checkbox-and-label {
-        display: flex;
-        align-items: center;
-        gap: var(--size-space-300);
-        position: relative;
-        align-self: stretch;
-        width: 100%;
-        flex: 0 0 auto;
-    }
 
     .desktop .button-3 {
         all: unset;
@@ -398,14 +380,15 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="globals.css" />
-
+    <title>Registrazione</title>
 </head>
 <body>
 <div class="desktop">
     <div class="overlap-group-wrapper">
         <div class="overlap-group">
             <div class="overlap">
-                <form name="registerForm" action="Dispatcher" method="post">
+
+                <form name="registerForm" id="registerForm" action="Dispatcher" method="post">
                     <div class="frame-4">
                         <div class="input-field">
                             <label for="nome" class="label">Nome</label>
@@ -434,24 +417,18 @@
                         <div class="div">
                             <label for="password" class="label">Password</label>
                             <p class="password-description">La password deve contenere almeno 8 caratteri, almeno 1 numero e 1 lettera maiuscola</p>
-                            <input class="input" id="password" name="password" placeholder="password" type="text" required/>
+                            <input class="input" id="password" name="password" placeholder="password" type="password" required/>
                         </div>
                     </div>
                     <input type="hidden" name="controllerAction" value="HomeManagement.register"/>
                     <button class="button-3">
-                        <img class="user" src="img/user.svg" />
                         <input class="button-4" type="submit" value="Registrati">
                     </button>
                 </form>
+
             </div>
             <div class="frame-3"><p class="p">Ti sei gi&agrave; registrato? <a href="Dispatcher?controllerAction=HomeManagement.loginView">Fai il login</a></p></div>
             <button class="button"><p class="button-2" onclick="location.href='Dispatcher?controllerAction=HomeManagement.view' ">Annulla</p></button>
-            <div class="switch-field" data-color-mode="SDS-light">
-                <div class="checkbox-and-label">
-                    <label for="organizzatore">Organizzatore</label>
-                    <input type="checkbox" id="organizzatore" name="organizzatore" value="Organizzatore">
-                </div>
-            </div>
 
 
         </div>

@@ -1,9 +1,6 @@
 package com.progettoweb.progettoweb.model.dao.mySQLJDBCImpl;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,18 +21,14 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
         PreparedStatement ps;
         Utente user = new Utente();
         user.setUsername(username);
-        user.setPassword(password);
         user.setEmail(email);
+        user.setPassword(password);
         user.setNome(nome);
         user.setCognome(cognome);
         user.setIndirizzo(indirizzo);
         user.setStato(stato);
         user.setCitta(citta);
         user.setCap(cap);
-
-
-
-
 
         try {
             //controllo se USERNAME esiste già in una tupla
@@ -94,7 +87,12 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
                 ps.setString(i++,user.getIndirizzo());
                 ps.setString(i++, user.getStato());
                 ps.setString(i++, user.getCitta());
-                ps.setLong(i++, user.getCap());
+                if(cap!=null){
+                    ps.setLong(i++, cap);
+                }
+                else{
+                    ps.setNull(i++, java.sql.Types.NULL);
+                }
                 ps.setString(i++, user.getUsername());
 
                 ps.executeUpdate();
