@@ -44,12 +44,11 @@
             border: none;
             height: 2px;
             background-color: #336699;
-            margin: 20px auto; /* Spazio sopra e sotto al divisore */
-            width: 95%; /* Larghezza del divisore */
+            margin: 20px auto;
+            width: 95%;
         }
 
         .contact-section {
-            background-color: white;
             text-align: center;
         }
         .contact-details {
@@ -72,7 +71,7 @@
 <body>
 <%@include file="/include/header.jsp"%>
 
-<main>
+<main style="background-color:#d0e1f3;">
 
     <h2 class="section-title">I nostri giochi</h2>
     <div class="product-showcase-container">

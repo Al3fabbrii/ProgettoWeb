@@ -14,8 +14,22 @@
         position:relative;
         float:right;
         padding: 5px;
+        margin: 5px;
+        border: 2px solid;
+        border-color: white;
+        border-radius: 20px;
+        text-align: center;
+        color: white;
     }
-
+    .image{
+        width:50px;
+        height: 50px;
+    }
+    p{
+        text-align: center;
+        font-size: 2em;
+        color: white;
+    }
 </style>
 <header class="clearfix">
     <h1 class="logo" style="font-family: 'Games', sans-serif;
@@ -25,16 +39,18 @@
     <p>Accesso eseguito come amministratore</p>
 
     <section>
-        <a href="javascript:HomeForm.submit()" class="home">Torna alla Home del sito
-            <img src="https://www.svgrepo.com/show/526560/home.svg">
-        </a>
-        <a href="Dispatcher?controllerAction=AdminManagement.view" class="home">Vai alla Home dell'amministrazione</a>
+        <button onclick="location.href='Dispatcher?controllerAction=HomeManagement.view' " class="home">
+            <img src="https://www.svgrepo.com/show/526560/home.svg" class="image">
+            <br>Torna alla home del sito
+        </button>
+        <button onclick="location.href='Dispatcher?controllerAction=AdminManagement.view'" class="home">
+            <img src="https://www.svgrepo.com/show/501805/admin.svg" class="image">
+            <br>Torna alla home di amministrazione
+        </button>
     </section>
 
 </header>
-<form name="HomeForm" action="Dispatcher" method="post">
-    <input type="hidden" name="controllerAction" value="HomeManagement.view"/>
-</form>
+
 
 <form name="logoutForm" action="Dispatcher" method="post">
     <input type="hidden" name="controllerAction" value="HomeManagement.logout"/>
