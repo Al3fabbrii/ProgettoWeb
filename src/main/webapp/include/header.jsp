@@ -18,6 +18,7 @@
     }
 
 </script>
+<link href="https://fonts.cdnfonts.com/css/games" rel="stylesheet">
 
 <style>
     .desktop {
@@ -111,12 +112,41 @@
         left:1250px;
         object-fit: cover;
     }
+    .profile-container{
+        position: relative;
+        top: 100px;
+        float:right;
+        left: 70px;
+    }
 
+    .admin{
+        position: relative;
+        float: right;
+        padding: 5px;
+        background-color: #336699;
+        border: 2px solid;
+        border-color: black;
+        border-radius: 20px;
+        text-align:center;
+        font-family: "Inter-Regular", Helvetica;
+        color:white;
+        font-size: 1.2em;
+    }
+
+    .logout{
+        width: auto;
+        height: 25px;
+    }
 </style>
 <header class="clearfix">
     <h1 class="logo" style="font-family: 'Games', sans serif;
                             font-size:5.5em;
                             ">House of games shop</h1>
+
+    <form name="logoutForm" action="Dispatcher" method="post">
+        <input type="hidden" name="controllerAction" value="HomeManagement.logout"/>
+    </form>
+
     <div class="desktop">
 
         <div class="div">
@@ -128,11 +158,26 @@
             </div>
             <form id="searchForm" name="searchForm" action="Dispatcher" method="post" >
                 <input type="hidden" name="controllerAction" value="HomeManagement.searchView">
-                <input class="overlap-group-2" type="text" value="Cerca qui i prodotti che desideri">
+                <input class="overlap-group-2" type="text" placeholder="Cerca qui i prodotti che desideri">
                 <img class="search-alt-svgrepo" src="https://www.svgrepo.com/show/532552/search-alt-2.svg" />
                 <button type="submit" form="searchForm" hidden="hidden"></button>
             </form>
 
+            <%if (loggedOn) {%>
+            <div class="profile-container">
+                <%if (loggedOn && loggedUser.getAdmin().equals("Y")){%>
+                <button class="admin" onclick="location.href='Dispatcher?controllerAction=AdminManagement.view' ">Amministrazione</button>
+                <% }%>
+                <button class="admin" onclick="location.href='Dispatcher?controllerAction=OrderManagement.view' ">Ordini</button>
+
+                <button class="admin"onclick="location.href='Dispatcher?controllerAction=UserProfile.view' ">Profilo</button>
+
+                <a class="admin" href="javascript:logoutForm.submit()">
+                    <img src="https://www.svgrepo.com/show/500948/off.svg" class="logout">
+                </a>
+            </div>
+
+            <%} %>
         </div>
     </div>
 </header>
