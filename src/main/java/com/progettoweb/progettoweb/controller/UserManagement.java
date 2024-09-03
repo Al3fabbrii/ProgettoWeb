@@ -174,7 +174,16 @@ public class UserManagement {
             daoFactory = DAOFactory.getDAOFactory(Configuration.DAO_IMPL,null);
             daoFactory.beginTransaction();
 
-            Long user_id = Long.parseLong(request.getParameter("user_id"));
+            String userIdParam=request.getParameter("user_id");
+            if(userIdParam==null||userIdParam.isEmpty()){
+                throw new RuntimeException("user id parameter is missing or empty");
+            }
+            long user_id;
+            try{
+                user_id=Long.parseLong(userIdParam);
+            }catch(NumberFormatException e){
+                throw new RuntimeException("invalid user id format: "+userIdParam);
+            }
 
             UtenteDAO userDAO = daoFactory.getUtenteDAO();
             Utente user = userDAO.findByUserId(user_id);

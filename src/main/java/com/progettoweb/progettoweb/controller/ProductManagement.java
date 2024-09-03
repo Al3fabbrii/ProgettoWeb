@@ -165,7 +165,7 @@ public class ProductManagement extends HttpServlet {
 
                 request.setAttribute("loggedOn",loggedUser!=null);
                 request.setAttribute("loggedUser", loggedUser);
-                request.setAttribute("viewUrl", "adminManagement/prodInsModView");
+                request.setAttribute("viewUrl", "adminManagement/prodInsView");
 
             } catch (Exception e) {
                 logger.log(Level.SEVERE, "Controller Error", e);
@@ -209,7 +209,7 @@ public class ProductManagement extends HttpServlet {
             ProdottoDAO prodottoDAO = daoFactory.getProdottoDAO();
 
             BigDecimal price = new BigDecimal(request.getParameter("Prezzo"));
-            int avalaibility = Integer.parseInt(request.getParameter("Quantità_disp"));
+            int avalaibility = Integer.parseInt(request.getParameter("Quantità"));
 
             String photo = request.getParameter("img_path");
             //se la foto non è inserita metto di deafault questa
@@ -299,7 +299,7 @@ public class ProductManagement extends HttpServlet {
             request.setAttribute("loggedOn",loggedUser!=null);
             request.setAttribute("loggedUser", loggedUser);
             request.setAttribute("prodotto", prodotto);
-            request.setAttribute("viewUrl", "adminManagement/prodInsModView");
+            request.setAttribute("viewUrl", "adminManagement/prodModView");
 
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Controller Error", e);

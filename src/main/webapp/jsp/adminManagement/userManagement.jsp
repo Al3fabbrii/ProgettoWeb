@@ -53,7 +53,7 @@
     .search-input{
       background-color: white;
       margin:auto;
-      height: 100px;
+      height: 50px;
       width: 80%;
       border: 2px solid;
       border-color: black;
@@ -62,7 +62,6 @@
     .search-alt-svgrepo{
       width: 60px;
       height: 60px;
-      top:15px;
       position: relative;
       float: right;
     }
@@ -99,7 +98,7 @@
     }
   </style>
   <script language="JavaScript">
-    function search(name){
+    function searchFunc(name){
       f=document.searchForm;
       f.searchString.value=name;
       f.requestSubmit();
@@ -110,9 +109,18 @@
       document.setAdminForm.requestSubmit();
     }
 
-    function deleteUser(userID){
-      document.orderManagementForm.user_id_value=userID;
-      document.orderManagementForm.requestSubmit();
+    function deleteUser(id){
+      document.deleteForm.user_id.value=id;
+      document.deleteForm.requestSubmit();
+    }
+
+    function maxViewSizeInc(maxViewSize){
+      <%if((maxViewSize+8)>users.size()){%>
+      document.loadMoreForm.maxViewSize.value= <%=users.size()%>;
+      <%} else{ %>
+      document.loadMoreForm.maxViewSize.value=maxViewSize+8;
+      <%}%>
+      document.loadMoreForm.requestSubmit();
     }
 
     function mainOnLoadHandler(){}
@@ -124,7 +132,7 @@
   <main>
     <div class="search-container">
       <form id="searchForm" name="searchForm" action="Dispatcher" method="post" class="search-form">
-        <input type="text" name="searchText" placeholder="Cerca un utente tramite username" class="search-input">
+        <input type="text" name="searchString" placeholder="Cerca un utente tramite username" class="search-input">
         <input type="hidden" name="controllerAction" value="UserManagement.searchView">
         <img class="search-alt-svgrepo" src="https://www.svgrepo.com/show/532552/search-alt-2.svg" />
         <button type="submit" form="searchForm" hidden="hidden"></button>
@@ -175,10 +183,6 @@
     <form name="setAdminForm" action="Dispatcher" method="post">
       <input type="hidden" name="user_id">
       <input type="hidden" name="controllerAction" value="UserManagement.setAdmin">
-    </form>
-    <form name="orderManagementForm" action="Dispatcher" method="post">
-      <input type="hidden" name="user_id">
-      <input type="hidden" name="controllerAction" value="UserManagement.orderModView">
     </form>
     <form name="loadMoreForm" action="Dispatcher" method="post">
       <input type="hidden" name="maxViewSize" value="<%=maxViewSize%>">
