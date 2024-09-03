@@ -20,7 +20,7 @@
 <head>
     <%@ include file="/include/htmlHead.inc"%>
     <script language="JavaScript">
-        function DynamicFormcCheck(e){
+        function DynamicFormCheck(e){
             var EventTriggerName=(e.target.name);
             var EventTriggerValue=(e.target.value);
 
@@ -45,8 +45,8 @@
 
         function submitItem(){
             if(StaticFormCheck()){
-                document.insForm.controllerAction.value="ProductManagement.modify";
-                document.insForm.submit();
+                document.modForm.controllerAction.value="ProductManagement.modify";
+                document.modForm.submit();
             }
         }
 
@@ -55,10 +55,10 @@
         }
 
         function mainOnLoadHandler(){
-            document.insForm.Invia.addEventListener("click",submitItem);
-            document.insForm.backButton.addEventListener("click",back);
-            document.insForm.Prezzo.addEventListener("click",DynamicFormcCheck);
-            document.insForm.Quantita.addEventListener("click",DynamicFormcCheck);
+            document.modForm.Invia.addEventListener("click",submitItem);
+            document.modForm.backButton.addEventListener("click",back);
+            document.modForm.Prezzo.addEventListener("change",DynamicFormCheck);
+            document.modForm.Quantità.addEventListener("change",DynamicFormCheck);
         }
     </script>
 
@@ -113,9 +113,9 @@
 <body>
 <%@include file="/include/adminHeader.jsp"%>
 <main>
-    <h1>Gestione nuovo prodotto</h1>
+    <h1>Modifica prodotto</h1>
     <section>
-        <form name="insForm" action="Dispatcher" method="post" style="margin-bottom: 100px;">
+        <form name="modForm" action="Dispatcher" method="post" style="margin-bottom: 100px;">
             <div class="input-container">
                 <label for="Nome">Nome</label>
                 <input type="text" id="Nome" name="Nome" placeholder="Nome prodotto" class="input-text" value="<%=prodotto.getNome_prod()%>" required>
@@ -126,7 +126,7 @@
             </div>
             <div class="input-container">
                 <label for="Quantita">Quantità</label>
-                <input type="text" id="Quantita" name="Quantita" placeholder="Quantità prodotto" class="input-text"  value="<%=prodotto.getQuantita_disponibile()%>" required>
+                <input type="text" id="Quantita" name="Quantità" placeholder="Quantità prodotto" class="input-text"  value="<%=prodotto.getQuantita_disponibile()%>" required>
             </div>
             <div class="input-container">
                 <label for="Descrizione">Descrizione</label>

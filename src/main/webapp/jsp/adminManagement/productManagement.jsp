@@ -147,8 +147,8 @@
 <main>
     <div class="search-container">
         <form id="searchForm" name="searchForm" action="Dispatcher" method="post" class="search-form">
-            <input type="text" name="searchString" placeholder="Cerca un utente tramite username" class="search-input">
-            <input type="hidden" name="controllerAction" value="UserManagement.searchView">
+            <input type="text" name="searchString" placeholder="Cerca un gioco" class="search-input">
+            <input type="hidden" name="controllerAction" value="ProductManagement.searchView">
             <button type="submit" form="searchForm" hidden="hidden"></button>
         </form>
     </div>
@@ -166,11 +166,12 @@
             <div>
                 <%=products.get(i).getNome_prod()%>
             </div>
-            <p><%=products.get(i).getQuantita_disponibile()%></p>
-            <button onclick="modifyItem()" class="modify-button">
+            <p>Quantità presente: <%=products.get(i).getQuantita_disponibile()%></p>
+            <p>Prezzo attuale: <%=products.get(i).getPrezzo()%></p>
+            <button onclick="modifyItem(<%=products.get(i).getId_prod()%>)" class="modify-button">
                 Modifica il prodotto
             </button>
-            <button onclick="deleteItem()" class="delete-button">
+            <button onclick="deleteItem(<%=products.get(i).getId_prod()%>)" class="delete-button">
                 Elimina il prodotto
             </button>
         </div>

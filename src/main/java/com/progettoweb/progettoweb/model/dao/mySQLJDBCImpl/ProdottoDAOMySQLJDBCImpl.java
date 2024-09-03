@@ -101,11 +101,11 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
                         + "     (Nome,"
                         + "     Descrizione,"
                         + "     Prezzo,"
-                        + "     Quantità_disp,"
+                        + "     Quantità,"
                         + "     Categoria,"
                         + "     img_path "
                         + "   ) "
-                        + " VALUES (?,?,?,?,?,?,?)";
+                        + " VALUES (?,?,?,?,?,?)";
 
                 ps = conn.prepareStatement(sql);
                 i = 1;
@@ -142,7 +142,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
                     + " Nome = ? AND"
                     + " Descrizione = ? AND"
                     + " Prezzo = ? AND"
-                    + " Quantità_disp = ? AND "
+                    + " Quantità = ? AND "
                     + " Categoria = ? AND "
                     + " img_path = ? AND "
                     + " Id_prod <> ?";
@@ -188,7 +188,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
                     + " Nome = ?,"
                     + " Descrizione = ? ,"
                     + " Prezzo = ? ,"
-                    + " Quantità_disp = ? , "
+                    + " Quantità = ? , "
                     + " Categoria = ? , "
                     + " img_path = ? "
                     + " WHERE "
@@ -242,7 +242,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
             sql
                     = " UPDATE prodotto "
                     + " SET "
-                    + " Quantità_disp = ? "
+                    + " Quantità = ? "
                     + " WHERE "
                     + " Id_prod = ? ";
 
@@ -392,19 +392,19 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
         } catch (SQLException sqle) {
         }
         try {
-            prod.setDescrizione(rs.getString("descrizione"));
+            prod.setDescrizione(rs.getString("Descrizione"));
         } catch (SQLException sqle) {
         }
         try {
-            prod.setPrezzo(rs.getBigDecimal("prezzo"));
+            prod.setPrezzo(rs.getBigDecimal("Prezzo"));
         } catch (SQLException sqle) {
         }
         try {
-            prod.setQuantita_disponibile(rs.getInt("quantità_disp"));
+            prod.setQuantita_disponibile(rs.getInt("Quantità"));
         } catch (SQLException sqle) {
         }
         try {
-            prod.setCategoria(rs.getString("categoria"));
+            prod.setCategoria(rs.getString("Categoria"));
         } catch (SQLException sqle) {
         }
         try {
