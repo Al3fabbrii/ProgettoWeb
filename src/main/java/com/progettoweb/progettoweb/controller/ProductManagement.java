@@ -208,10 +208,14 @@ public class ProductManagement extends HttpServlet {
 
             ProdottoDAO prodottoDAO = daoFactory.getProdottoDAO();
 
+            String availabilityStr=request.getParameter("Quantità");
+            if(availabilityStr==null ||availabilityStr.isEmpty()) {
+                throw new IllegalArgumentException("Quantità is missing or is empty");
+            }
             BigDecimal price = new BigDecimal(request.getParameter("Prezzo"));
-            int avalaibility = Integer.parseInt(request.getParameter("Quantità"));
+            int avalaibility = Integer.parseInt(availabilityStr);
 
-            String photo = request.getParameter("img_path");
+            String photo = request.getParameter("URL");
             //se la foto non è inserita metto di deafault quest
             if(photo.isEmpty()){
                 photo = "https://media.istockphoto.com/id/1472933890/vector/no-image-vector-symbol-missing-available-icon-no-gallery-for-this-moment-placeholder.jpg?s=612x612&w=0&k=20&c=Rdn-lecwAj8ciQEccm0Ep2RX50FCuUJOaEM8qQjiLL0=" ;

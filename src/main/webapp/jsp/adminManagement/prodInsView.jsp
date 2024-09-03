@@ -19,8 +19,8 @@
 <html>
 <head>
     <%@ include file="/include/htmlHead.inc"%>
-    <script>
-        function DynamicFormcCheck(e){
+    <script language="JavaScript">
+        function DynamicFormCheck(e){
             var EventTriggerName=(e.target.name);
             var EventTriggerValue=(e.target.value);
 
@@ -28,18 +28,20 @@
                 alert("Il campo "+EventTriggerName+" richiede un numero");
         }
 
-        function StaticFormCheck(){
-            var prezzo=document.getElementById("Prezzo").value;
-            var quantita=document.getElementById("Quantità").value;
+        function StaticFormCheck() {
+            var prezzoValue = document.getElementById("Prezzo").value;
+            var avalaibilityValue = document.getElementById("Quantità").value;
 
-            if(isNaN(prezzo)){
-                alert("Il campo PREZZO deve essere un numero");
+            if (isNaN(prezzoValue)) {
+                alert("Il campo PREZZO richiede un numero valido");
                 return false;
             }
-            if(isNaN(quantita)){
-                alert("Il campo QUANTITÀ deve essere un numero");
+
+            if (isNaN(avalaibilityValue)) {
+                alert("Il campo QUANTITÀ richiede un numero valido");
                 return false;
             }
+
             return true;
         }
 
@@ -57,8 +59,8 @@
         function mainOnLoadHandler(){
             document.insForm.Invia.addEventListener("click",submitItem);
             document.insForm.backButton.addEventListener("click",back);
-            document.insForm.Prezzo.addEventListener("click",DynamicFormcCheck);
-            document.insForm.Quantità.addEventListener("click",DynamicFormcCheck);
+            document.insForm.Prezzo.addEventListener("change",DynamicFormCheck);
+            document.insForm.Quantità.addEventListener("change",DynamicFormCheck);
         }
     </script>
 
