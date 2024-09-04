@@ -292,6 +292,7 @@
 
 </style>
 <head>
+    <title>Login</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="globals.css" />
 </head>

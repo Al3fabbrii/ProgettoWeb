@@ -15,7 +15,8 @@
     String menuActiveLink = "Gestione dei prodotti";
     List<Prodotto> products=(List<Prodotto>) request.getAttribute("products");
     int maxViewSize;
-    if(products.size()<8){
+
+    if(products.size()<16){
         maxViewSize=products.size();
     }
     else{
@@ -28,7 +29,6 @@
 %>
 <html>
 <head>
-    <title>Title</title>
     <%@ include file="/include/htmlHead.inc"%>
 
     <script language="JavaScript">
@@ -52,7 +52,7 @@
         }
 
         function maxViewSizeInc(maxViewSize){
-            <%if((maxViewSize+8)>products.size()){%>
+            <%if((maxViewSize+16)>products.size()){%>
             document.loadMoreForm.maxViewSize.value= <%=products.size()%>;
             <%} else{ %>
             document.loadMoreForm.maxViewSize.value=maxViewSize+8;
@@ -109,9 +109,10 @@
             float: right;
         }
         .item-container{
-            justify-content: center;
+            justify-content: center ;
             text-align:center;
             display:flex;
+            flex-wrap: wrap;
         }
         .item{
             padding:10px;
@@ -180,7 +181,7 @@
             <%if(maxViewSize==products.size()){%>
             <p>Altro</p>
             <%}else{%>
-            <a href="javascript:maxViewSizeInc(<%=maxViewSize%>">Altri</a>
+            <a href="javascript:maxViewSizeInc(<%=maxViewSize%>)">Altri</a>
             <%}%>
         </div>
     </div>

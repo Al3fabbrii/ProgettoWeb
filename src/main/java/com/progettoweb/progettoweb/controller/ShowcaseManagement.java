@@ -119,7 +119,7 @@ public class ShowcaseManagement {
 
             request.setAttribute("loggedOn",loggedUser!=null);
             request.setAttribute("loggedUser", loggedUser);
-            request.setAttribute("viewUrl", "adminManagement/showcaseInsModView");
+            request.setAttribute("viewUrl", "adminManagement/showcaseInsert");
 
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Controller Error", e);
@@ -169,7 +169,7 @@ public class ShowcaseManagement {
             request.setAttribute("loggedUser", loggedUser);
             request.setAttribute("loggedOn",loggedUser!=null);
             request.setAttribute("applicationMessage", applicationMessage);
-            request.setAttribute("viewUrl", "adminManagement/showcaseInsModView");
+            request.setAttribute("viewUrl", "adminManagement/showcaseInsert");
 
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Controller Error", e);

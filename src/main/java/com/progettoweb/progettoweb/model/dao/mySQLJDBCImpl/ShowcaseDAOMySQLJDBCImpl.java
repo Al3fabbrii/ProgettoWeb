@@ -43,7 +43,7 @@ public class ShowcaseDAOMySQLJDBCImpl implements ShowcaseDAO {
             }
             rs.close();
 
-            if(conta >= 3){
+            if(conta >= 20){
                 throw new RuntimeException("Limite showcase raggiunto.");
             }
 
