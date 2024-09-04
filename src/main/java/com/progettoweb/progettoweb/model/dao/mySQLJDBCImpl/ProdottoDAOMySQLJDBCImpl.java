@@ -267,7 +267,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
 
             String sql
                     = " UPDATE prodotto "
-                    + " SET deleted='1' "
+                    + " SET Deleted='1' "
                     + " WHERE "
                     + " Id_prod=?";
 
@@ -326,8 +326,8 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
                     = " SELECT *"
                     + " FROM prodotto "
                     + " WHERE "
-                    + "nome LIKE ? AND "
-                    + "deleted = '0'";
+                    + "Nome LIKE ? AND "
+                    + "Deleted = '0'";
 
             ps = conn.prepareStatement(sql);
             ps.setString(1, name);
@@ -361,7 +361,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
                     = " SELECT *"
                     + " FROM prodotto"
                     + " WHERE "
-                    + " deleted ='0'";
+                    + " Deleted ='0'";
 
             ps = conn.prepareStatement(sql);
 
@@ -408,11 +408,11 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
         } catch (SQLException sqle) {
         }
         try {
-            prod.setDeleted_prod(rs.getString("deleted").equals("Y"));
+            prod.setDeleted_prod(rs.getString("Deleted").equals("Y"));
         } catch (SQLException sqle) {
         }
         try {
-            prod.setBlocked_prod(rs.getBoolean("blocked"));
+            prod.setBlocked_prod(rs.getBoolean("Blocked"));
         } catch (SQLException sqle) {
         }
         try {

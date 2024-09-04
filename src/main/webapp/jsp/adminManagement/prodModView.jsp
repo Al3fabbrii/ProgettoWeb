@@ -28,26 +28,8 @@
                 alert("Il campo "+EventTriggerName+" richiede un numero");
         }
 
-        function StaticFormCheck(){
-            var prezzo=document.getElementById("Prezzo").value;
-            var quantita=document.getElementById("Quantità").value;
-
-            if(isNaN(prezzo)){
-                alert("Il campo PREZZO deve essere un numero");
-                return false;
-            }
-            if(isNaN(quantita)){
-                alert("Il campo QUANTITÀ deve essere un numero");
-                return false;
-            }
-            return true;
-        }
-
         function submitItem(){
-            if(StaticFormCheck()){
-                document.modForm.controllerAction.value="ProductManagement.modify";
-                document.modForm.submit();
-            }
+            document.modForm.submit();
         }
 
         function back(){
@@ -143,7 +125,7 @@
             <input type="hidden" name="id_prod" value="<%=prodotto.getId_prod()%>"/>
             <input type="button" name="Invia" value="Conferma" onclick="submitItem()" class="submit-button"/>
             <input type="button" name="backButton" value="Annulla" onclick="back()" class="back-button">
-            <input type="hidden" name="controllerAction">
+            <input type="hidden" name="controllerAction" value="ProductManagement.modify">
 
         </form>
     </section>

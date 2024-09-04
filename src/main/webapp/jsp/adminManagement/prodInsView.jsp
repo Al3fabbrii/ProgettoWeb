@@ -12,9 +12,6 @@
     Utente loggedUser = (Utente) request.getAttribute("loggedUser");
     String applicationMessage = (String) request.getAttribute("applicationMessage");
     String menuActiveLink = "Inserimento dei prodotti";
-
-    Prodotto prodotto=(Prodotto) request.getAttribute("prodotto");
-
 %>
 <html>
 <head>
