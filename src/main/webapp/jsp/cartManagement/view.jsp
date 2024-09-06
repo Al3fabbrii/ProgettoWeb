@@ -50,17 +50,18 @@
         .cart-container{
             width: 90%;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
             margin:auto;
         }
         .cart-item{
-            width: 85%;
+            width: 30%;
             border: 2px solid black;
             border-radius: 15px;
             margin: 10px;
         }
         .item-image{
-            max-width: 50%;
+            max-width: 70%;
             display:flex;
             margin:auto;
             justify-content: center;
@@ -81,7 +82,7 @@
 
         }
         .less-button{
-            background-color: #336699;
+            background-color: #4e9bdb;
             border: 2px solid;
             border-radius: 5px;
             position: relative;
@@ -89,7 +90,7 @@
             margin: 5px;
         }
         .add-button{
-            background-color: #336699;
+            background-color: #4e9bdb;
             border: 2px solid;
             border-radius: 5px;
             position: relative;
@@ -97,7 +98,7 @@
             margin: 5px;
         }
         .remove-button{
-            background-color: #336699;
+            background-color: #4e9bdb;
             border: 2px solid;
             border-radius: 5px;
             position: relative;
@@ -116,8 +117,6 @@
         }
         .trash-image{
             max-width: 15px;
-            position: relative;
-            float: left;
         }
 
         .total{
@@ -151,12 +150,20 @@
             float: right;
             margin: 5px;
         }
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #0a3868;
+            font-family: 'Games', sans serif;
+            letter-spacing: 2px;
+        }
     </style>
 </head>
 <body>
 <%@include file="/include/header.jsp"%>
     <main>
-        <h1>Il tuo carrello</h1>
+        <h1 class="section-title">Il tuo carrello</h1>
 
         <div class="cart-container">
             <%for(i=0;i<carts.size();++i){%>

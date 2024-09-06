@@ -123,7 +123,7 @@ public class OrderManagement {
 
     }
 
-    public static void setDelivered(HttpServletRequest request, HttpServletResponse response) {
+    public static void setCompleted(HttpServletRequest request, HttpServletResponse response) {
 
         DAOFactory sessionDAOFactory= null;
         DAOFactory daoFactory = null;
@@ -147,7 +147,7 @@ public class OrderManagement {
             daoFactory.beginTransaction();
 
             singleOrderRetrieve(daoFactory, sessionDAOFactory, request);
-            String status = "Ordine consegnato";
+            String status = "Ordine completato";
             boolean setDeliveredSwitch = true;
             request.setAttribute("setDeliveredSwitch", setDeliveredSwitch);
 

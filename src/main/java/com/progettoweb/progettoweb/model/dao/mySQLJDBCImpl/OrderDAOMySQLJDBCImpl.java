@@ -123,7 +123,7 @@ public class OrderDAOMySQLJDBCImpl implements OrderDAO {
                     + " WHERE "
                     + " Deleted ='0' AND"
                     + " timestamp = ? AND"
-                    + " utente_id = ? ";
+                    + " Id_utente = ? ";
 
             ps = conn.prepareStatement(sql);
             ps.setTimestamp(1, timestamp);
@@ -161,7 +161,7 @@ public class OrderDAOMySQLJDBCImpl implements OrderDAO {
                     + " WHERE "
                     + " Deleted ='0' AND"
                     + " timestamp = ? AND"
-                    + " utente_id = ? ";
+                    + " Id_utente = ? ";
 
             ps = conn.prepareStatement(sql);
             ps.setTimestamp(1, timestamp);

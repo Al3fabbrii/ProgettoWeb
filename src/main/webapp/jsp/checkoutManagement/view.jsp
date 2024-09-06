@@ -153,21 +153,21 @@
         <div class="payment">
             <h2 class="subsection-title">Pagamento</h2>
 
-            <label for="Numero di carta" class="label">Numero di carta</label>
-            <input form="CompleteOrderForm" class="input-button" name="Numero di carta" id="Numero di carta" type="text" placeholder="Numero della carta" value="<%=(user.getCard_n() != null) ? user.getCard_n() : "" %>">
-            <label for="CVC" class="label">CVC</label>
-            <input form="CompleteOrderForm" class="input-button" name="Numero di carta" id="CVC" type="text" placeholder="CVC" value="<%=(user.getCvc() != 0) ? user.getCvc() : "" %>">
-            <label for="Scadenza" class="label">Data di scadenza</label>
-            <input form="CompleteOrderForm" class="input-button" name="Numero di carta" id="Scadenza" type="text" placeholder="Data scadenza" value="<%=(user.getExp_date() != null) ? user.getExp_date() : "" %>">
+            <label for="card_n" class="label">Numero di carta</label>
+            <input form="CompleteOrderForm" class="input-button" name="card_n" id="card_n" type="text" placeholder="Numero della carta" value="<%=(user.getCard_n() != null) ? user.getCard_n() : "" %>">
+            <label for="cvc" class="label">CVC</label>
+            <input form="CompleteOrderForm" class="input-button" name="cvc" id="cvc" type="text" placeholder="CVC" value="<%=(user.getCvc() != 0) ? user.getCvc() : "" %>">
+            <label for="exp_date" class="label">Data di scadenza</label>
+            <input form="CompleteOrderForm" class="input-button" name="exp_date" id="exp_date" type="text" placeholder="Data scadenza" value="<%=(user.getExp_date() != null) ? user.getExp_date() : "" %>">
         </div>
         <hr class="section-divider">
         <div class="address">
             <h2 class="subsection-title">Indirizzo di fatturazione</h2>
             <label for="via" class="label">Nome della via e numero civico</label>
             <input form="CompleteOrderForm" name="via" id="via" class="input-button" type="text" placeholder="Indirizzo" value="<%=(user.getIndirizzo() != null) ? user.getIndirizzo() : "" %>">
-            <label for="Numero di carta" class="label">CAP</label>
+            <label for="cap" class="label">CAP</label>
             <input form="CompleteOrderForm" name="cap" id="cap" type="text" class="input-button" placeholder="CAP" value="<%=(user.getCap() != 0) ? user.getCap() : "" %>">
-            <label for="Numero di carta" class="label">Città</label>
+            <label for="città" class="label">Città</label>
             <input form="CompleteOrderForm" name="città" id="città" type="text" placeholder="Città" class="input-button" value="<%=(user.getCitta() != null) ? user.getCitta() : "" %>">
         </div>
         <hr class="section-divider">
