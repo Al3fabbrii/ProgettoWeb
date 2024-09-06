@@ -80,6 +80,25 @@
         left: 7px;
         object-fit: cover;
     }
+    .home-group{
+        width: 70px;
+        height: 70px;
+        top: 20px;
+        position:relative;
+        float: right;
+        left: -30px;
+        background-color: #4e9bdb;
+        border: 3px solid black;
+        border-radius: 35px;
+    }
+    .image-home-button{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        top: 7px;
+        left: 7px;
+    }
 
     .desktop .overlap-group-2 {
         width: 804px;
@@ -151,17 +170,15 @@
 
         <div class="div">
             <div class="overlap">
-                <img class="cart-shopping" src="https://www.svgrepo.com/show/533043/cart-shopping.svg" />
+                <img class="cart-shopping" src="https://www.svgrepo.com/show/533043/cart-shopping.svg" onclick="location.href='Dispatcher?controllerAction=CartManagement.view'"/>
             </div>
             <div class="overlap-group">
                 <img class="account-svgrepo-com" src="https://www.svgrepo.com/show/453660/account.svg" onclick="location.href='Dispatcher?controllerAction=HomeManagement.loginView' "/>
             </div>
-            <form id="searchForm" name="searchForm" action="Dispatcher" method="post" >
-                <input type="hidden" name="controllerAction" value="HomeManagement.searchView">
-                <input class="overlap-group-2" type="text" placeholder="Cerca qui i prodotti che desideri">
-                <img class="search-alt-svgrepo" src="https://www.svgrepo.com/show/532552/search-alt-2.svg" />
-                <button type="submit" form="searchForm" hidden="hidden"></button>
-            </form>
+            <div class="home-group">
+                <img class="image-home-button" src="https://www.svgrepo.com/show/526560/home.svg" onclick="location.href='Dispatcher?controllerAction=HomeManagement.view'">
+            </div>
+
 
             <%if (loggedOn) {%>
             <div class="profile-container">

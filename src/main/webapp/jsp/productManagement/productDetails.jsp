@@ -40,17 +40,17 @@
     .image-section{
       justify-content: center;
       display: flex;
-      border: 1px solid black;
-      border-radius: 250px;
-      max-width: 80%;
+      max-width: 100%;
       margin: auto;
       padding: 10px;
-      background-color: #4e9bdb;
     }
     .info{
       border: 2px solid black;
       border-radius: 25px;
-      margin: 10px;
+      width:50%;
+      margin: auto;
+      margin-top:10px;
+      margin-bottom: 10px;
       background-color: #4e9bdb;
     }
     .warning-container{
@@ -87,6 +87,7 @@
       width: 30%;
       display: flex;
       margin:auto;
+      margin-bottom: 10px;
       justify-content: center;
     }
   </style>
@@ -123,15 +124,13 @@
         </div>
       </div>
 
+      <button class="annulla" onclick="location.href='Dispatcher?controllerAction=ProductManagement.view'">Catalogo completo</button>
 
-      <button class="annulla" onclick="location.href='Dispatcher?controllerAction=HomeManagement.view'"T>
-         Torna alla home
-      </button>
     </div>
 
     <form name="AddToCartForm" action="Dispatcher" method="post">
       <input type="hidden" name="id_prod">
-      <input type="hidden" name="controllerAction" value="CartManagement.addProduct">
+      <input type="hidden" name="controllerAction" value="CartManagement.AddProduct">
       <input type="hidden" name="viewUrl" value="productManagement/view">
     </form>
 

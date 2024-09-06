@@ -55,7 +55,7 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
             exist = resultSet.next();
             if (exist){
                 existing_cart_id = (resultSet.getLong("cart_id"));
-                oldquantity = (resultSet.getLong("quantity"));
+                oldquantity = (resultSet.getLong("Quantità"));
             }
 
             resultSet.close();
@@ -135,7 +135,7 @@ public class CartDAOMySQLJDBCImpl implements CartDAO {
             ResultSet resultSet = ps.executeQuery();
             resultSet.next();
 
-            Long oldquantity = (resultSet.getLong("quantity"));
+            Long oldquantity = (resultSet.getLong("Quantità"));
             Long existing_cart_id = (resultSet.getLong("cart_id"));
 
             resultSet.close();

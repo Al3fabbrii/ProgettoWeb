@@ -64,6 +64,13 @@
             max-width: 50%;
             margin: auto;
         }
+        .product-view{
+            color: white;
+            font-size: 2em;
+            background-color: #336699;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
     </style>
     <script language="javascript">
 
@@ -81,7 +88,7 @@
 <%@include file="/include/header.jsp"%>
 
 <main style="background-color:#d0e1f3;">
-
+    <button class="product-view" onclick="location.href='Dispatcher?controllerAction=ProductManagement.view' ">Catalogo dei giochi</button>
     <h2 class="section-title">I giochi consigliati</h2>
     <div class="product-showcase-container">
         <div class="product-showcase">
