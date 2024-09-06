@@ -117,8 +117,8 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
                     = " SELECT COUNT(*)Username "
                     + " FROM utente "
                     + " WHERE "
-                    + " Id_utente != ? AND "
-                    + " Username = ?";
+                    + " Id_utente != ? AND Username= ? ";
+                    ;
 
             ps = conn.prepareStatement(sql);
             int i = 1;
@@ -411,9 +411,9 @@ public class UtenteDAOMySQLJDBCImpl implements UtenteDAO {
 
             String sql
                     = " UPDATE utente "
-                    + " SET card_n = 'mancante', "
-                    + " cvc = 0, "
-                    + " exp_date = 'mancante' "
+                    + " SET card_n = null, "
+                    + " cvc = null, "
+                    + " exp_date = null "
                     + " WHERE Id_utente = ? ";
 
             ps = conn.prepareStatement(sql);

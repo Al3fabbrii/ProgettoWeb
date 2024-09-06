@@ -150,11 +150,14 @@ public class UserProfile {
             Long cvc;
 
             try {
-                if (!request.getParameter("CAP").isEmpty()){
+
+                if (request.getParameter("CAP") != null && !request.getParameter("CAP").isEmpty()){
                     cap = Long.parseLong(request.getParameter("CAP"));
                     user.setCap(cap);
                 }
-                if (!request.getParameter("cvc").isEmpty()){
+
+
+                if (request.getParameter("cvc") != null && !request.getParameter("cvc").isEmpty()){
                     cvc = Long.parseLong(request.getParameter("cvc"));
                     user.setCvc(cvc);
                 }
