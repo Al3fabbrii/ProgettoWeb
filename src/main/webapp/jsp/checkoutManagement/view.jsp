@@ -177,7 +177,7 @@
             <div>
                 <%for(i=0;i<carts.size();++i){%>
                     <div>
-                        <p style="text-align: center; font-size: 1.3em; color: black; margin-bottom: 10px;" ><%=carts.get(i).getProdotto().getNome_prod()%></p>
+                        <p style="text-align: center; font-size: 1.3em; color: black; margin-bottom: 10px;" ><strong><%=carts.get(i).getProdotto().getNome_prod()%></strong></p>
                         <p style="text-align: center; font-size: 1.3em; color: black; margin-bottom: 10px;">Quantità: <%=carts.get(i).getQuantity()%></p>
                         <p style="text-align: center; font-size: 1.3em; color: #d63b18; margin-bottom: 10px;">Prezzo: <%=carts.get(i).getProdotto().getPrezzo()%></p>
                     </div>

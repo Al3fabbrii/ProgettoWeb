@@ -370,13 +370,10 @@ public class CartManagement {
             carts.get(i).setProdotto(prodotto);
         }
 
-        //qui calcolo le spese di spedizione che consideriamo il 10% dell'ordine, moltiplico il totale per 1.10 e poi a questo sottraggo il costo del totale in modo da ottenere le spese di spedizione da mostrare a video
-        total_amount = subtotal.multiply(new BigDecimal("1.10"));
-        shipping = total_amount.subtract(subtotal);
+
+        total_amount = subtotal.multiply(new BigDecimal("1.0"));
 
         request.setAttribute("total_amount", total_amount);
-        request.setAttribute("subtotal", subtotal);
-        request.setAttribute("shipping", shipping);
         request.setAttribute("carts", carts);
     }
 

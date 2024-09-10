@@ -17,7 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class AdminManagement {
-    public static void changelangAdmin(HttpServletRequest request, HttpServletResponse response){
+    /*public static void changelangAdmin(HttpServletRequest request, HttpServletResponse response){
         DAOFactory sessionDAOFactory= null;
         DAOFactory daoFactory = null;
         Utente loggedUser;
@@ -62,6 +62,8 @@ public class AdminManagement {
             }
         }
     }
+    */
+
     public static void view(HttpServletRequest request, HttpServletResponse response) {
 
         DAOFactory sessionDAOFactory= null;

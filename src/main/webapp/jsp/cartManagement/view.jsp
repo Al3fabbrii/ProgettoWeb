@@ -50,7 +50,7 @@
         .cart-container{
             width: 90%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             flex-wrap: wrap;
             margin:auto;
         }
@@ -64,7 +64,6 @@
             max-width: 70%;
             display:flex;
             margin:auto;
-            justify-content: center;
         }
         .item-name{
             text-align: center;
@@ -99,24 +98,25 @@
         }
         .remove-button{
             background-color: #4e9bdb;
-            border: 2px solid;
+            border: 2px solid black;
+            color: white;
             border-radius: 5px;
             position: relative;
             float: left;
             margin: 5px;
         }
         .less-image{
-            max-width: 15px;
+            max-width: 25px;
             position: relative;
             float: left;
         }
         .add-image{
-            max-width: 15px;
+            max-width: 25px;
             position: relative;
             float: left;
         }
         .trash-image{
-            max-width: 15px;
+            max-width: 25px;
         }
 
         .total{
@@ -185,7 +185,7 @@
 
                         <button class="remove-button" onclick="RemoveBlockFromCart(<%=carts.get(i).getProdotto().getId_prod()%>)">
                             <img src="https://www.svgrepo.com/show/533010/trash-alt.svg" class="trash-image">
-                            <br>Rimuovi il prodotto dal carrello
+                            <br >Rimuovi il prodotto dal carrello
                         </button>
                     </div>
                 </div>

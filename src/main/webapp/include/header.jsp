@@ -30,7 +30,9 @@
     }
 
     .desktop .div {
-        background-image: url("https://img.uhdpaper.com/wallpaper/playstation-buttons-background-digital-art-98@0@i-thumb.jpg?dl");
+        background-image: url("https://m.media-amazon.com/images/I/71kDbxHyB4L.jpg");
+        background-size:  100% 200%;
+        background-position-y: -100px;
         width: 100%;
         height: 230px;
         position: relative;
@@ -100,37 +102,11 @@
         left: 7px;
     }
 
-    .desktop .overlap-group-2 {
-        width: 804px;
-        height: 145px;
-        top: 43px;
-        left: 550px;
-        background-color: #4e9bdb;
-        font-family: "Inter-Regular", Helvetica;
-        text-align:left;
-        color: black;
-        font-size: 3em;
-        letter-spacing: 0;
-        line-height: normal;
-        white-space: nowrap;
-        border-radius: 40px;
-        border: 2px solid;
-        position: absolute;
-        border-color: #000000;
-    }
-
 
     ::placeholder{
         color:black;
     }
-    .desktop .search-alt-svgrepo {
-        position: relative;
-        width: 70px;
-        height: 71px;
-        top: 70px;
-        left:1250px;
-        object-fit: cover;
-    }
+
     .profile-container{
         position: relative;
         top: 100px;
@@ -150,6 +126,7 @@
         font-family: "Inter-Regular", Helvetica;
         color:white;
         font-size: 1.2em;
+        margin-left: 10px;
     }
 
     .logout{

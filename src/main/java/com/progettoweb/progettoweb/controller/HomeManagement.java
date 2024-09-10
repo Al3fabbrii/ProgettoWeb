@@ -452,7 +452,7 @@ public class HomeManagement {
         }
 
     }
-    public static void changePage(HttpServletRequest request, HttpServletResponse response) {
+    /*public static void changePage(HttpServletRequest request, HttpServletResponse response) {
 
         DAOFactory sessionDAOFactory= null;
         DAOFactory daoFactory = null;
@@ -508,7 +508,7 @@ public class HomeManagement {
             }
         }
 
-    }
+    }*/
     private static void showcaseProductRetrieve(DAOFactory daoFactory, DAOFactory sessionDAOFactory, HttpServletRequest request) {
 
         showcaseRetrieve(daoFactory, sessionDAOFactory, request);

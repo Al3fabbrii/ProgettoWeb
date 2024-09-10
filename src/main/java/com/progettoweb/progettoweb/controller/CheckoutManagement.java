@@ -145,7 +145,7 @@ public class CheckoutManagement {
             CartDAO cartDAO = daoFactory.getCartDAO();
             cartDAO.deleteCart(user);
 
-            applicationMessage = "Ordine effettuato. tieni d'occhio gli ordini effettuati nell'area utente.";
+            applicationMessage = "Ordine effettuato. controlla gli ordini effettuati nella tua area personale.";
 
             productRetrieve(daoFactory, sessionDAOFactory, request);
             showcaseProductRetrieve(daoFactory, sessionDAOFactory, request);
