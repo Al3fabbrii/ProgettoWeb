@@ -109,9 +109,10 @@
 
     .profile-container{
         position: relative;
-        top: 100px;
-        float:right;
-        left: 70px;
+        width: 97%;
+        top: 50px;
+        display: flex;
+        justify-content: right;
     }
 
     .admin{
@@ -146,9 +147,11 @@
     <div class="desktop">
 
         <div class="div">
+            <%if(loggedOn){%>
             <div class="overlap">
                 <img class="cart-shopping" src="https://www.svgrepo.com/show/533043/cart-shopping.svg" onclick="location.href='Dispatcher?controllerAction=CartManagement.view'"/>
             </div>
+            <%}%>
             <div class="overlap-group">
                 <img class="account-svgrepo-com" src="https://www.svgrepo.com/show/453660/account.svg" onclick="location.href='Dispatcher?controllerAction=HomeManagement.loginView' "/>
             </div>

@@ -20,6 +20,8 @@
 <html>
   <head>
     <%@ include file="/include/htmlHead.inc"%>
+    <link href="https://fonts.cdnfonts.com/css/games" rel="stylesheet">
+
     <script>
       function insert(){
         document.insertForm.requestSubmit();
@@ -32,6 +34,13 @@
     </script>
 
     <style>
+      .section-title {
+        text-align: center;
+        font-size: 40px;
+        margin-bottom: 10px;
+        color: #0a3868;
+        font-family: 'Games', sans serif
+      }
       .add-image{
         width: 60px;
         height: 60px;
@@ -76,10 +85,10 @@
   <%@include file="/include/adminHeader.jsp"%>
 
   <main>
-    <h1>Seleziona i prodotti da mettere in homepage</h1>
+    <h1 class="section-title">Seleziona i prodotti da mettere in homepage</h1>
 
     <div>
-      <p>Aggiungi nuovi prodotti in homepage</p>
+      <p style="color: black; ">Aggiungi nuovi prodotti in homepage</p>
       <a href="javascript:insertForm.requestSubmit()" class="add-button">
         <img src="https://www.svgrepo.com/show/510786/add-plus-circle.svg" class="add-image">
       </a>

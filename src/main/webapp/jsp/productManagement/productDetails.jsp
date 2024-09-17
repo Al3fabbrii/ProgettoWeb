@@ -90,6 +90,14 @@
       margin-bottom: 10px;
       justify-content: center;
     }
+    .section-divider {
+      border: none;
+      height: 2px;
+      background-color: black;
+      margin: 20px auto;
+      width: 95%;
+    }
+
   </style>
 </head>
 <body>
@@ -119,8 +127,11 @@
         </div>
         <%}%>
         <div>
-          <h2 style="color: black; text-align: center; font-size: 3em;">Descrizione</h2>
+          <h2 style="color: black; text-align: center; font-size: 2em;">Descrizione</h2>
           <p class="description"><%=prodotto.getDescrizione()%></p>
+          <hr class="section-divider">
+          <h2 style="color: black; text-align: center; font-size: 2em;">Categoria del gioco</h2>
+          <p class="description"><%=prodotto.getCategoria()%></p>
         </div>
       </div>
 

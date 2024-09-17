@@ -211,7 +211,7 @@
             </div>
         <%} else {%>
             <div>
-                <p>Il carrello è vuoto, vai nella sezione prodotti e seleziona almeno un gioco da acquistare</p>
+                <p style="text-align: center; color: black; font-size: 2.5em;">Il carrello è vuoto, torna alla home e seleziona almeno un gioco da acquistare</p>
             </div>
         <%}%>
 

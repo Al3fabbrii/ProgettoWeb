@@ -154,12 +154,10 @@
           <span>ID utente: </span> <%=users.get(i).getId_utente()%>
         </p>
         <% if(!users.get(i).getAdmin().equals("N")){%>
-        <button onclick="setAdmin(<%=users.get(i).getId_utente()%>)" class="user-button">
-          Rendi amministratore o utente registrato
-        </button>
+
         <%}else{%>
         <button onclick="setAdmin(<%=users.get(i).getId_utente()%>)" class="user-button">
-          Rendi amministratore o utente registrato
+          Rendi amministratore
         </button>
         <%}%>
         <button onclick="deleteUser(<%=users.get(i).getId_utente()%>)" class="delete-button">
