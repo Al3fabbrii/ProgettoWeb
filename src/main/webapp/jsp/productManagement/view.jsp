@@ -93,7 +93,6 @@
             margin-top: 10px;
         }
         .item-container{
-            width: 90%;
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
@@ -145,7 +144,7 @@
     <main>
         <div class="search-container">
             <form id="searchForm" name="searchForm" action="Dispatcher" method="post" class="search-form">
-                <input type="text" name="searchString" placeholder="Cerca un gioco" class="search-input">
+                <input type="text" name="searchString" placeholder="Cerca il nome di un gioco" class="search-input">
                 <input type="hidden" name="controllerAction" value="HomeManagement.searchView">
                 <button type="submit" form="searchForm" hidden="hidden"></button>
             </form>

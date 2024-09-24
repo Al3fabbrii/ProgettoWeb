@@ -452,63 +452,7 @@ public class HomeManagement {
         }
 
     }
-    /*public static void changePage(HttpServletRequest request, HttpServletResponse response) {
 
-        DAOFactory sessionDAOFactory= null;
-        DAOFactory daoFactory = null;
-        Utente loggedUser = null;
-        String applicationMessage = null;
-        Logger logger = LogService.getApplicationLogger();
-
-        try {
-
-            Map sessionFactoryParameters=new HashMap<String,Object>();
-            sessionFactoryParameters.put("request",request);
-            sessionFactoryParameters.put("response",response);
-            sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL,sessionFactoryParameters);
-            sessionDAOFactory.beginTransaction();
-
-            UtenteDAO sessionUserDAO = sessionDAOFactory.getUtenteDAO();
-            loggedUser = sessionUserDAO.findLoggedUser();
-
-            daoFactory = DAOFactory.getDAOFactory(Configuration.DAO_IMPL,null);
-            daoFactory.beginTransaction();
-
-            productRetrieve(daoFactory, sessionDAOFactory, request);
-            showcaseProductRetrieve(daoFactory, sessionDAOFactory, request);
-
-            int arrayPos;
-            try {
-                arrayPos = Integer.parseInt(request.getParameter("arrayPos"));
-            } catch(NumberFormatException | NullPointerException e) {
-                arrayPos = 0;
-            }
-
-            daoFactory.commitTransaction();
-            sessionDAOFactory.commitTransaction();
-
-            request.setAttribute("arrayPos", arrayPos);
-            request.setAttribute("loggedOn",loggedUser!=null);
-            request.setAttribute("loggedUser", loggedUser);
-            request.setAttribute("applicationMessage", applicationMessage);
-            request.setAttribute("viewUrl", "homeManagement/view");
-
-        } catch (Exception e) {
-            logger.log(Level.SEVERE, "Controller Error", e);
-            try {
-                if (sessionDAOFactory != null) sessionDAOFactory.rollbackTransaction();
-            } catch (Throwable t) {
-            }
-            throw new RuntimeException(e);
-
-        } finally {
-            try {
-                if (sessionDAOFactory != null) sessionDAOFactory.closeTransaction();
-            } catch (Throwable t) {
-            }
-        }
-
-    }*/
     private static void showcaseProductRetrieve(DAOFactory daoFactory, DAOFactory sessionDAOFactory, HttpServletRequest request) {
 
         showcaseRetrieve(daoFactory, sessionDAOFactory, request);

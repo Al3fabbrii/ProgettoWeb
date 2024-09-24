@@ -95,6 +95,7 @@
       border-radius:10px;
       border-color: black;
       padding:5px;
+      margin-bottom: 5px;
     }
   </style>
   <script language="JavaScript">
