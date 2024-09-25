@@ -178,7 +178,7 @@
                         <button class="less-button" onclick="RemoveFromCart(<%=carts.get(i).getProdotto().getId_prod()%>)">
                             <img src="https://www.svgrepo.com/show/522184/minus.svg" class="less-image">
                         </button>
-                        <p style="text-align: center; color: black;"><%=carts.get(i).getQuantity()%></p>
+                        <p style="text-align: center; color: black;font-size: 2em;position: relative; top:10px;"><%=carts.get(i).getQuantity()%></p>
                         <button class="add-button" onclick="AddToCart(<%=carts.get(i).getProdotto().getId_prod()%>)">
                             <img src="https://www.svgrepo.com/show/522234/plus.svg" class="add-image">
                         </button>

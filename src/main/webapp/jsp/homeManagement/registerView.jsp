@@ -416,8 +416,17 @@
                     <div class="input-field-wrapper">
                         <div class="div">
                             <label for="password" class="label">Password</label>
-                            <p class="password-description">La password deve contenere almeno 8 caratteri, almeno 1 numero e 1 lettera maiuscola</p>
                             <input class="input" id="password" name="password" placeholder="password" type="password" required/>
+                            <img onclick="seePassword()" src="https://www.svgrepo.com/show/390427/eye-password-see-view.svg" style="position:relative;height: 30px; top:-43px; left: 700px;">
+                            <script>
+                                function seePassword(){
+                                    var passw=document.getElementById("password");
+                                    if(passw.type==="password"){
+                                        passw.type="text";
+                                    }
+                                    else{passw.type="password";}
+                                }
+                            </script>
                         </div>
                     </div>
                     <input type="hidden" name="controllerAction" value="HomeManagement.register"/>

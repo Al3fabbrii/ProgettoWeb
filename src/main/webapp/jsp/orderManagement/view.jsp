@@ -54,6 +54,14 @@
         .order-image{
             width: 80px;
         }
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #0a3868;
+            font-family: 'Games', sans serif;
+            letter-spacing: 2px;
+        }
         .order-list{
             display: flex;
             justify-content: center;
@@ -69,7 +77,7 @@
 <%@include file="/include/header.jsp"%>
 
     <main>
-        <h1>Ordini effettuati</h1>
+        <h1 class="section-title">Ordini effettuati</h1>
 
         <div class="order-list">
             <%if(!order_tuples.isEmpty()){%>

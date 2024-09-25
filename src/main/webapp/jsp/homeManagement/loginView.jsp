@@ -313,7 +313,17 @@
                         <div class="input-field">
                             <label for="password" class="label">Password</label>
                             <input type="password" placeholder="password" class="input" id="password" name="password" maxlength="40" required>
+                            <img onclick="seePassword()" src="https://www.svgrepo.com/show/390427/eye-password-see-view.svg" style="position: relative;height: 30px; top:-43px; left: 780px;">
                         </div>
+                        <script>
+                            function seePassword(){
+                                var passw=document.getElementById("password");
+                                if(passw.type==="password"){
+                                    passw.type="text";
+                                }
+                                else{passw.type="password";}
+                            }
+                        </script>
                     </div>
 
                     <input type="hidden" name="controllerAction" value="HomeManagement.logon"/>

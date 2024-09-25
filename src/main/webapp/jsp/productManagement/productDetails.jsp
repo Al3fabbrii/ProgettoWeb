@@ -121,9 +121,9 @@
         </div>
         <%}%>
         <%if(loggedOn){%>
-        <div class="warning-container">
+        <div class="warning-container" onclick="AddToCart(<%=prodotto.getId_prod()%>)">
           <img class="image-cart" src="https://www.svgrepo.com/show/533043/cart-shopping.svg">
-          <p style="color: black;" onclick="AddToCart(<%=prodotto.getId_prod()%>)">Aggiungi al carrello</p>
+          <p style="color: black;">Aggiungi al carrello</p>
         </div>
         <%}%>
         <div>
