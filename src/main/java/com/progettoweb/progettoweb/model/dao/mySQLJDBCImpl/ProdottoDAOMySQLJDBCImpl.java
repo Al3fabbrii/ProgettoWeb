@@ -312,6 +312,34 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
 
         return prod;
     }
+
+    @Override
+    public Prodotto findByProdIdForUpdate(Long id_prod) throws SQLException {
+        PreparedStatement ps;
+        Prodotto prod=null;
+
+        try{
+            String sql="SELECT *"
+                    + " FROM prodotto "
+                    + " WHERE "
+                    + " Id_prod=? FOR UPDATE";
+            ps = conn.prepareStatement(sql);
+            ps.setLong(1, id_prod);
+
+            ResultSet resultSet = ps.executeQuery();
+
+            if (resultSet.next()) {
+                prod = read(resultSet);
+            }
+            resultSet.close();
+            ps.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return prod;
+    }
+
     @Override
     public List<Prodotto> findByName(String name) {
 

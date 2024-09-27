@@ -8,6 +8,8 @@ import com.progettoweb.progettoweb.services.logservice.LogService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.*;
 import java.util.logging.Level;
@@ -82,7 +84,7 @@ public class CheckoutManagement {
 
     public static void order(HttpServletRequest request, HttpServletResponse response) {
 
-        DAOFactory sessionDAOFactory= null;
+        DAOFactory sessionDAOFactory = null;
         DAOFactory daoFactory = null;
         String applicationMessage = null;
         Utente loggedUser;
@@ -90,14 +92,13 @@ public class CheckoutManagement {
         Logger logger = LogService.getApplicationLogger();
 
         try {
-
-            Map sessionFactoryParameters=new HashMap<String,Object>();
-            sessionFactoryParameters.put("request",request);
-            sessionFactoryParameters.put("response",response);
-            sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL,sessionFactoryParameters);
+            Map sessionFactoryParameters = new HashMap<String,Object>();
+            sessionFactoryParameters.put("request", request);
+            sessionFactoryParameters.put("response", response);
+            sessionDAOFactory = DAOFactory.getDAOFactory(Configuration.COOKIE_IMPL, sessionFactoryParameters);
             sessionDAOFactory.beginTransaction();
 
-            daoFactory = DAOFactory.getDAOFactory(Configuration.DAO_IMPL,null);
+            daoFactory = DAOFactory.getDAOFactory(Configuration.DAO_IMPL, null);
             daoFactory.beginTransaction();
 
             UtenteDAO sessionUserDAO = sessionDAOFactory.getUtenteDAO();
@@ -116,44 +117,73 @@ public class CheckoutManagement {
 
             BigDecimal total_amount = (BigDecimal) request.getAttribute("total_amount");
 
-
             String status = "Processamento ordine";
 
             ProdottoDAO prodottoDAO = daoFactory.getProdottoDAO();
 
-            for (int i = 0; i < carts.size(); i++) {
+            boolean orderSuccessful = true;
 
-                long quantity = carts.get(i).getQuantity();
+            for (Cart cart : carts) {
+                Prodotto prodotto = cart.getProdotto();
+                long quantity = cart.getQuantity();
 
-                //creo l'ordine
-                orderDAO.create(
-                        current_user,
-                        carts.get(i).getProdotto(),
-                        quantity,
-                        status,
-                        ts,
-                        total_amount
-                );
+                // Start of optimistic locking
+                int retries = 3;
+                while (retries > 0) {
+                    try {
+                        // Check if the product is still available
+                        prodotto = prodottoDAO.findByProdIdForUpdate(prodotto.getId_prod());
+                        if (prodotto.getQuantita_disponibile() < quantity) {
+                            throw new SQLException("Not enough stock for product: " + prodotto.getNome_prod());
+                        }
 
-                //sottraggo dal db la quantita' di prodotti acquistati
-                prodottoDAO.updateAvalaibility(carts.get(i).getProdotto().getId_prod(), (int) quantity);
+                        // Create the order
+                        orderDAO.create(current_user, prodotto, quantity, status, ts, total_amount);
 
+                        // Update product availability
+                        prodottoDAO.updateAvalaibility(prodotto.getId_prod(), prodotto.getQuantita_disponibile() - (int) quantity);
+
+                        // If we get here, the operation was successful
+                        break;
+                    } catch (SQLException e) {
+                        retries--;
+                        if (retries == 0) {
+                            // If we've run out of retries, mark the order as failed and break the loop
+                            orderSuccessful = false;
+                            applicationMessage = "Errore: " + e.getMessage() + ". Riprova più tardi.";
+                            break;
+                        }
+                        // If we still have retries, wait a bit before trying again
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException ie) {
+                            Thread.currentThread().interrupt();
+                        }
+                    }
+                }
+
+                if (!orderSuccessful) {
+                    break;
+                }
             }
 
-            //svuoto il carrello
-            Utente user = userDAO.findByUserId(loggedUser.getId_utente());
-            CartDAO cartDAO = daoFactory.getCartDAO();
-            cartDAO.deleteCart(user);
+            if (orderSuccessful) {
+                // Empty the cart only if the order was successful
+                CartDAO cartDAO = daoFactory.getCartDAO();
+                cartDAO.deleteCart(current_user);
 
-            applicationMessage = "Ordine effettuato. controlla gli ordini effettuati nella tua area personale.";
+                applicationMessage = "Ordine effettuato. Controlla gli ordini effettuati nella tua area personale.";
+                daoFactory.commitTransaction();
+            } else {
+                daoFactory.rollbackTransaction();
+            }
+
+            sessionDAOFactory.commitTransaction();
 
             productRetrieve(daoFactory, sessionDAOFactory, request);
             showcaseProductRetrieve(daoFactory, sessionDAOFactory, request);
 
-            daoFactory.commitTransaction();
-            sessionDAOFactory.commitTransaction();
-
-            request.setAttribute("loggedOn",loggedUser!=null);
+            request.setAttribute("loggedOn", loggedUser != null);
             request.setAttribute("loggedUser", loggedUser);
             request.setAttribute("applicationMessage", applicationMessage);
             request.setAttribute("viewUrl", "homeManagement/view");
@@ -175,6 +205,7 @@ public class CheckoutManagement {
             }
         }
     }
+
 
     private static void productRetrieve(DAOFactory daoFactory, DAOFactory sessionDAOFactory, HttpServletRequest request) {
 

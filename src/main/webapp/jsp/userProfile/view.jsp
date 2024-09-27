@@ -73,7 +73,7 @@
 
     <main>
         <div>
-            <h1 class="section-title"><%=user.getNome()%></h1>
+            <h1 class="section-title">Benvenuto <%=user.getNome()%> <%=user.getCognome()%></h1>
             <p style="text-align: center; font-size: 1.5em; color: black; margin-bottom: 10px;" ><span>Nome utente: </span><%=user.getUsername()%></p>
             <p style="text-align: center; font-size: 1.5em; color: black; margin-bottom: 10px;" ><span>Nome: </span><%=user.getNome()%></p>
             <p style="text-align: center; font-size: 1.5em; color: black; margin-bottom: 10px;" ><span>Cognome: </span><%=user.getCognome()%></p>

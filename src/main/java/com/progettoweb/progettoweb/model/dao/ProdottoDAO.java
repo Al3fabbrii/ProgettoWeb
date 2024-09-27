@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import com.progettoweb.progettoweb.model.dao.exception.DataTruncationException;
 import com.progettoweb.progettoweb.model.dao.exception.DuplicatedObjectException;
 import com.progettoweb.progettoweb.model.mo.Prodotto;
+
+import java.sql.SQLException;
 import java.util.List;
 
 public interface ProdottoDAO {
@@ -23,6 +25,7 @@ public interface ProdottoDAO {
     public void delete(Prodotto prodotto);
     public List<Prodotto> findAll();
     public Prodotto findByProdId(Long id_prod);
+    public Prodotto findByProdIdForUpdate(Long id_prod) throws SQLException;
 
     public List<Prodotto> findByName(String nome_prod);
     public void modify(Prodotto prodotto)  throws DuplicatedObjectException, DataTruncationException;
