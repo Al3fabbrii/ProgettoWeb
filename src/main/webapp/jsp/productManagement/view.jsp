@@ -164,6 +164,7 @@
 
         <div class="item-container">
             <%for(i=0;i< products.size();++i){%>
+            <%if(products.get(i).getQuantita_disponibile()>0){%>
                 <div class="item">
                     <a href="javascript:productViewFunc(<%=products.get(i).getId_prod()%>)">
                         <img src="<%= products.get(i).getImg_path() %>" alt="<%= products.get(i).getNome_prod() %>" class="image">
@@ -182,6 +183,7 @@
 
                     <%}%>
                 </div>
+            <%}%>
             <%}%>
         </div>
 

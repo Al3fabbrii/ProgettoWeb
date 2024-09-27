@@ -248,7 +248,7 @@ public class ProdottoDAOMySQLJDBCImpl implements ProdottoDAO {
 
             int i = 1;
             ps = conn.prepareStatement(sql);
-            ps.setInt(i++, prod.getQuantita_disponibile() - quantita_disponibile);
+            ps.setInt(i++, quantita_disponibile);
             ps.setLong(i++, id_prod);
 
             ps.executeUpdate();

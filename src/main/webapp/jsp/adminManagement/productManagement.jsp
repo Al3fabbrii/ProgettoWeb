@@ -175,6 +175,9 @@
             <button onclick="deleteItem(<%=products.get(i).getId_prod()%>)" class="delete-button">
                 Elimina il prodotto
             </button>
+            <%if(products.get(i).getQuantita_disponibile()==0){%>
+                <p style="color:red;font-size: 1.3em; text-align: center;"><strong>ATTENZIONE, PRODOTTO TERMINATO! EFFETTUARE ORDINE</strong></p>
+            <%}%>
         </div>
         <%}%>
         <div>

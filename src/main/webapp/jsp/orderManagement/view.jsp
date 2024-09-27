@@ -64,11 +64,12 @@
         }
         .order-list{
             display: flex;
-            justify-content: center;
+            justify-content: space-evenly;
         }
         .order-item{
             border: 2px solid black;
             border-radius: 10px;
+            padding:5px;
             margin-bottom: 10px;
         }
     </style>
@@ -81,14 +82,15 @@
 
         <div class="order-list">
             <%if(!order_tuples.isEmpty()){%>
-                <div>
+
                     <%for(Timestamp k: ordersBySingleOrder.keySet()){%>
                         <div class="order-item">
                             <img src="https://www.svgrepo.com/show/529449/cart-check.svg" class="order-image">
+                            <p style="color:black; text-align: center;">Ordine del:</p>
                             <a href="Javascript:orderViewFunc(<%=k.getTime()%>)"><%=outputFormatter.format(k)%></a>
                         </div>
                     <%}%>
-                </div>
+
             <%}else{%>
                 <p>Nessun ordine effettuato</p>
             <%}%>
