@@ -281,12 +281,11 @@ public class CheckoutManagement {
             carts.get(i).setProdotto(prodotto);
         }
 
-        total_amount = subtotal.multiply(new BigDecimal("1.10"));
-        shipping = total_amount.subtract(subtotal);
+        total_amount = subtotal.multiply(new BigDecimal("1"));
+
 
         request.setAttribute("total_amount", total_amount);
         request.setAttribute("subtotal", subtotal);
-        request.setAttribute("shipping", shipping);
         request.setAttribute("carts", carts);
     }
 

@@ -89,7 +89,7 @@
             <p style="text-align: center; font-size: 1.3em; color: black; margin-bottom: 10px;"><%=order_tuples.get(0).getStatus()%></p>
 
             <%if(!order_tuples.get(0).getStatus().equals("Ordine completato") || setCompleted){%>
-                <p style="text-align: center; font-size: 1.3em; color: black; margin-bottom: 10px;">Controlla la tua mail per verificare di avere ricevuto il codice di avviamento per il gioco</p>
+                <p style="text-align: center; font-size: 1.3em; color: black; margin-bottom: 10px;">Controlla la tua mail per verificare di avere ricevuto il codice di avviamento</p>
                 <button type="submit" form="setCompletedForm" id="deliver-button" class="completed-button">Marca come completato</button>
             <%}%>
         </div>

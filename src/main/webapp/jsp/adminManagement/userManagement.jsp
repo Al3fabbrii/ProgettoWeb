@@ -135,7 +135,6 @@
       <form id="searchForm" name="searchForm" action="Dispatcher" method="post" class="search-form">
         <input type="text" name="searchString" placeholder="Cerca un utente tramite username" class="search-input">
         <input type="hidden" name="controllerAction" value="UserManagement.searchView">
-        <img class="search-alt-svgrepo" src="https://www.svgrepo.com/show/532552/search-alt-2.svg" />
         <button type="submit" form="searchForm" hidden="hidden"></button>
       </form>
     </div>
